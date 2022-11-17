@@ -1,3 +1,3 @@
 # SynthLogic
 
-Hackathon Hero music themed game
+Hackathon Hero music themed game.
