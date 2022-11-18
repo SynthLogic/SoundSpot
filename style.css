@@ -1,5 +1,6 @@
 body {
   background: black;
+  color: whitesmoke;
 }
 
 .modal {
@@ -13,4 +14,8 @@ body {
   height: 100%;
   overflow: auto;
   background-color: rgba(255, 255, 255, 0.4);
+}
+
+li  {
+  display: inline;
 }
