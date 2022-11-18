@@ -92,7 +92,7 @@ function resetGame() {
     gameGrid.style.cursor = 'auto';
     for (let i = 0; i < chosenOption.length; i++) {
         chosenOption[i].classList.remove('chosen');
-      };
+    };
 }
 
 /*
@@ -102,12 +102,12 @@ function answerQuestion(option) {
     if(!state.isPlaying) return;
     option.classList.add('chosen');
     if(option.classList.contains('chosen')) return;
-  
+
     const playerResponse = document.getElementsByClassName('chosen')[0];
     const correctResponse = question.getElementById('correct') // Where question is provided by the array of questions provided
 
     option.classList.add('chosen');   
-  
+
     if (playerResponse === correctResponse){
         const scoreboard = document.getElementById('scoreboard')
         state.incrementScore;

@@ -70,15 +70,3 @@ function startRound() {
   let chosenSound = playSound();
   showImages(chosenSound);
 }
-
-
-// getData().then(files => {
-//   files.forEach(file => {
-//       if (file.contentType == 'audio/mpeg' ) {
-//           soundsToPlay.push(file);
-//       }
-//       if (file.contentType == 'image/png') {
-//           imageOptions.push(file);
-//       }
-//   });
-// });
