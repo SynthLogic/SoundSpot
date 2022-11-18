@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SynthLogic</title>
+    <title>Document</title>
 </head>
+
 <body>
-    
+    <div>
+        <button id="start-button">Start</button>
+        <button id="play-button" disabled>Play</button>
+        <button id="reset-button">Reset</button>
+    </div>
+    <div>
+        <p>
+            Score: <span id="scoreboard"></span>
+        </p>
+    </div>
+    <div>
+        <div id="game-grid">
+            <div class="questionImg">
+                <!-- Placeholder image -->
+                <img src="assets/images/118433811.png" style="filter:invert(100%)" alt="PLACEHOLDER">
+            </div>
+            <div>
+                <ul>
+                    <li><button class="option">A</button></li>
+                    <li><button class="option">B</button></li>
+                    <li><button class="option">C</button></li>
+                    <li><button class="option">D</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final score modal -->
+    <div id="game-modal" class="modal">
+        <div>
+            <p>You answered <span class="game-score"></span> questions correctly.</p>
+        </div>
+    </div>
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>
