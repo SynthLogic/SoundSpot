@@ -7,24 +7,36 @@
     <title>SoundSpot - Register</title>
 </head>
 <body>
-    
+
     <h1>Register</h1>
     <p>Fill in your details to create an account.</p>
+    <form id="contact-form" onsubmit="" method="post">
 
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username" placeholder="Desired username" required>
+        <div>
+            <label for="username" aria-label="Select Username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Desired username" required>
+        </div>
+        
+        <div>
+            <label for="email" aria-label="Enter your email">Your email address</label>
+            <input type="text" id="email" name="email" placeholder="Enter Email" required>
+        </div>   
 
-    <label for="email">Email</label>
-    <input type="text" id="email" name="email" placeholder="Enter Email" required>
+        <div> 
+            <label for="password" aria-label="Enter Password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+        </div>
+        <div>
+            <label for="password-repeat" aria-label="Confirm Password">Confirm Password</label>
+            <input type="password" id="password-repeat" name="password-repeat" placeholder="Confirm Password" required>
+        </div>
 
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" placeholder="Enter Password" required>
+        <div>
+            <input type="submit" aria-label="Submit form" value="Register">
+            <input type="reset" aria-label="Reset form" value="Reset Form">
+        </div>
 
-    <label for="password-repeat">Repeat Password</label>
-    <input type="password" id="password-repeat" name="password-repeat" placeholder="Repeat Password" required>
-
-    <input type="submit" value="Register">
-    <input type="reset" value="Reset Form">
+    </form>
     
 </body>
 </html>
