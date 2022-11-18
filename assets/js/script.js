@@ -59,6 +59,9 @@ window.addEventListener('click', function(event) {
     if (event.target.nodeName === 'BUTTON' && event.target.id === 'reset-button') {
         resetGame();
     }
+    if (event.target.classList.contains('option')) {
+        answerQuestion(event.target);
+    }
 });
 
 /*
@@ -81,9 +84,38 @@ function resetGame() {
     const startButton = document.getElementById('start-button');
     const playButton = document.getElementById('play-button');
     const gameGrid = document.getElementById('game-grid');
+    const chosenOption = document.getElementsByClassName('chosen');
     state.resetGame();
     startButton.disabled = false;
     playButton.disabled = true;
     startButton.style.cursor = 'pointer';
     gameGrid.style.cursor = 'auto';
+    for (let i = 0; i < chosenOption.length; i++) {
+        chosenOption[i].classList.remove('chosen');
+      };
+}
+
+/*
+Determine if player's choice is correct or not
+*/
+function answerQuestion(option) {
+    if(!state.isPlaying) return;
+    option.classList.add('chosen');
+    if(option.classList.contains('chosen')) return;
+  
+    const playerResponse = document.getElementsByClassName('chosen')[0];
+    const correctResponse = question.getElementById('correct') // Where question is provided by the array of questions provided
+
+    option.classList.add('chosen');   
+  
+    if (playerResponse === correctResponse){
+        const scoreboard = document.getElementById('scoreboard')
+        state.incrementScore;
+        state.incrementQuestions;
+        scoreboard.innerHTML = score;
+        if(state.questionsAnswered === 10){
+            gameModal.showModal();
+        }
+        return;
+    };
 }
