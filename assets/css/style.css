@@ -1,6 +1,13 @@
+* {
+  box-sizing: border-box;
+}
 body {
   background: black;
   color: whitesmoke;
+}
+
+li  {
+  display: inline;
 }
 
 .modal {
@@ -16,6 +23,23 @@ body {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-li  {
-  display: inline;
+.error {
+  max-width: 500px;
+  margin: auto;
+}
+
+.error-heading {
+  height: 300px;
+}
+
+.error-h1 {
+  position: absolute;
+  top: 26px;
+}
+
+.womp-womp {
+  margin-left: 26px;
+  margin-right: auto;
+  height: 250px;
+  filter: grayscale(100%);
 }
