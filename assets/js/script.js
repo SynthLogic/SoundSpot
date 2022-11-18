@@ -36,6 +36,7 @@ const gameModal = {
         document.getElementById('game-modal').style.display = 'none';
     }
 }
+
 /*
 Allows players to click off modal to close.
 */
@@ -85,79 +86,4 @@ function resetGame() {
     playButton.disabled = true;
     startButton.style.cursor = 'pointer';
     gameGrid.style.cursor = 'auto';
-}
-
-/*
-Get images and audio
-*/
-const playButton = document.querySelector("#play-button");
-let imageOptions = [];
-let soundsToPlay = [];
-
-async function getData() {
-    const apiUrl = "https://soundspotgame.herokuapp.com/api/file/getall/";
-    const response = await fetch(apiUrl);
-    const result = await response.json();
-    return result;
-  }
-
-  getData().then(files => {
-    files.forEach(file => {
-        if (file.contentType == 'audio/mpeg' ) {
-            soundsToPlay.push(file);
-        } else if (file.contentType == "image/png") {
-            imageOptions.push(file)
-        }
-
-    });
-  });
-
-  playButton.addEventListener("click", startRound);
-
-function playSound() {
-  let randomSound = soundsToPlay[Math.floor(Math.random() * soundsToPlay.length)];
-  let audioContext = new Audio(`data:${randomSound.contentType};base64,${randomSound.content}`);
-  audioContext.play();
-}
-
-getData().then(images => {
-    images.forEach(image => {
-        imageOptions.push(image);
-    });
-  });
-
-
-const base64img = getData();
-function Base64ToImage(base64img, callback) {
-    const img = new Image();
-    img.onload = function() {
-        callback(img);
-    };
-    img.src = base64img;
-}
-Base64ToImage(base64img, function(img) {
-    forEach(option => {
-        options = document.getElementsByclass('option')
-        options.document.createElement('button')
-        options.appendChild(img);
-    })
-
-
-});
-
-function showImages () {
-    let images = Array.from(document.getElementsByClassName('option'));
-    images.forEach(image => {
-        let randomImage = imageOptions[Math.floor(Math.random() * imageOptions.length)];
-        let imageContext = new Image() 
-        imageContext.src = (`data:${randomImage.contentType};base64,${randomImage.content}`);
-        imageContext.width=100;
-        imageContext.height=100;
-        image.appendChild(imageContext)
-    })
-}
-
-function startRound() {
-    showImages();
-    playSound();
 }
