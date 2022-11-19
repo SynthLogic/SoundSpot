@@ -1,8 +1,13 @@
+--root {
+  --english-violet: #39304A;
+  --earth-yellow: #EEB66D;
+}
+
 * {
   box-sizing: border-box;
 }
 body {
-  background: black;
+  background: #39304A;
   color: whitesmoke;
 }
 
@@ -43,3 +48,84 @@ li  {
   height: 250px;
   filter: grayscale(100%);
 }
+
+
+/* Login form */
+
+.card {
+  background-color: #EEB66D;
+  margin: auto;
+  color: #39304A;
+  width: 50%;
+  min-height: 300px;
+  padding: 10px;
+
+}
+
+#login-form {
+  /* left      : 50%;
+  top       : 50%;
+  position  : absolute;
+  transform : translate(-50%, -50%); */
+  margin: auto;
+  color: #39304A;
+  /* background-color: rgba(205, 177, 177, 0.5); */
+  width: 350px;
+  padding: 10px;
+}
+
+.card h1 { 
+  text-align: center;
+  padding: 10px;
+  margin:20px 0;
+  font-size: 1.5em;
+}
+
+.card > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.card input[type="text"] {
+  padding: 5px;
+  border-radius:10px;
+  border: none;
+}
+
+.card input[type="password"] {
+  padding: 5px;
+  border-radius:10px;
+  border: none;
+}
+
+.card input[type="submit"] {
+  width: 100%;
+  margin-top: 25px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #39304A;
+  color: white;
+  text-transform: uppercase;
+} 
+
+label {
+  flex-basis: 100%;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.card .space-between {
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+  padding: 5px;
+}
+
+@media only screen and (max-width: 720px) {
+.card {
+  width: 90%;
+}
+}
+  
