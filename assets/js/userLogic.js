@@ -32,13 +32,15 @@ async function postRequest(e) {
     method: 'POST',
     body: formData
   });
-  if (response.statusCode == 200 && isLogin) {
-    alert('You have successfully logged in');
+  if (response.status == 200 && isLogin) {
+    alert('You have successfully logged in.');
+    window.location.href = '../../index.html';
     const data = await response.json();
     sessionStorage.setItem('user', JSON.stringify(data));
   }
-  if (response.statusCode == 200 && isRegister) {
-    alert('You have successfully registered');
+  if (response.status == 200 && isRegister) {
+    alert('You have successfully registered. Please login.');
+    window.location.href = '../../login.html';
   }
 }
 
