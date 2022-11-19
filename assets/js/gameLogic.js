@@ -9,6 +9,7 @@ const imageButtons = Array.from(document.getElementsByClassName('img-option'));
 /*
 Global variables
 */
+let audioContext = new Audio();
 let imageOptions = [];
 let soundsToPlay = [];
 let score = 0;
@@ -34,21 +35,26 @@ IIFE for getting all necessary data from the database
 })().then(files => {
   files.forEach(file => {
       if (file.contentType == 'audio/mpeg' ) {
-          soundsToPlay.push(file);
+        soundsToPlay.push(file);
       }
       if (file.contentType == 'image/png') {
-          imageOptions.push(file);
+        imageOptions.push(file);
       }
   });
-});
+}).then(playButton.disabled = false);
 
 /*
 Plays a random audio file from the list
 */
 function playSound() {
+  if (soundsToPlay.length == 0) {
+    alert('Sounds are not available. Try again.');
+    return;
+  };
   let randomSound = soundsToPlay[Math.floor(Math.random() * soundsToPlay.length)];
-  let audioContext = new Audio(`data:${randomSound.contentType};base64,${randomSound.content}`);
+  audioContext.src = `data:${randomSound.contentType};base64,${randomSound.content}`;
   audioContext.play();
+  soundsToPlay = soundsToPlay.filter(x => x.name !== randomSound.name);
   return randomSound.name;
 }
 
@@ -69,8 +75,8 @@ function showImages(chosenSound) {
   set.delete(imageOptions.indexOf(chosenFile));
   let randIdx = [...set];
   images.filter(x => images.indexOf(x) !== randomIndex).forEach(image => {
-      let randomFile = imageOptions[randIdx.pop()];
-      convertbase64Image(image, randomFile, false);
+    let randomFile = imageOptions[randIdx.pop()];
+    convertbase64Image(image, randomFile, false);
   });
 }
 
@@ -86,7 +92,6 @@ function convertbase64Image(element, file, correct) {
   element.appendChild(imageContext);
 }
 
-
 /*
 Starts a game round
 */
@@ -96,31 +101,27 @@ function startRound() {
 }
 
 /*
-Registers answer to isCorrect variable
+Check if answer is correct
 */
-
 function registerAnswer(e) {
   isCorrect = e.target.getAttribute('data-correct');
-  submitAnswer()
-}
-
-/*
-Check if answer is correct and update score
-*/
-function submitAnswer() {
-
+  audioContext.pause();
+  audioContext.currentTime = 0;
+  let images = [...imageButtons];
+  images.forEach(img => img.innerHTML = '');
   if (isCorrect == 'true') {
     increaseScore();
-    document.getElementById('gameboard').style.backgroundColor='green'
+    document.getElementById('gameboard').style.backgroundColor='green';
   } else {
-    document.getElementById('gameboard').style.backgroundColor='red'
+    document.getElementById('gameboard').style.backgroundColor='red';
   }
   const normalColor = () => {
-    document.getElementById('gameboard').style.backgroundColor='#EEB66D'
-}
-  const myTimeout = setTimeout(normalColor, 1000);
-
-  startRound()
+    document.getElementById('gameboard').style.backgroundColor='#EEB66D';
+    if (soundsToPlay.length == 0) {
+      alert('The game has ended');
+    };
+  }
+  setTimeout(normalColor, 1000);
 }
 
 /*
@@ -130,6 +131,3 @@ function increaseScore() {
   ++score;
   scoreBoard.innerText = score;
 }
-
-
-
