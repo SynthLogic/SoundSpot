@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>SoundSpot - Login!</title>
 </head>
 <body>
+    <header>
+        <h2 id="small-title">Sound Spot</h2>
+            <ul id="nav">
+                <li>
+                    <a href="index.html">Home Page</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact Us</a>
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+            </ul>
+    </header>
 
-    <form id="login form" onsubmit="" method="post">
+    <form class="card" id="login-form">
+
+        <h1>Login</h1>
         <div>
             <label for="email" aria-label="Enter your email">Email</label>
-            <input type="text" id="email" name="email" placeholder="Enter your Email" required>
+            <input type="email" id="email" name="email" placeholder="Enter your Email" required>
         </div>
 
         <div> 
@@ -21,16 +38,18 @@
         <div>
             <input type="submit" aria-label="Login button" value="Login">
         </div>  
-        
+        <div class="space-between">
         <div>
             <a href="register.html" aria-label="Click here to create an account">Don't have an account?</a>
         </div>
 
         <div>
-            <a href="" aria-label="Click here to reset your password">Forgot Password?</a>
+            <a href="reset-password.html" aria-label="Click here to reset your password">Forgot Password?</a>
+        </div>
         </div>
 
     </form>
     
+    <script src="assets/js/userLogic.js"></script>
 </body>
 </html>

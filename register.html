@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>SoundSpot - Register</title>
 </head>
 <body>
+    <header>
+        <h2 id="small-title">Sound Spot</h2>
+            <ul id="nav">
+                <li>
+                    <a href="index.html">Home Page</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact Us</a>
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+            </ul>
+    </header>
 
-    <h1>Register</h1>
-    <p>Fill in your details to create an account.</p>
-    <form id="contact-form" onsubmit="" method="post">
+    <form class="card" id="register-form">
+        <h1>Register</h1>
+        <p>Fill in your details to create an account.</p>
 
         <div>
             <label for="username" aria-label="Select Username">Username</label>
@@ -19,17 +34,17 @@
         
         <div>
             <label for="email" aria-label="Enter your email">Your email address</label>
-            <input type="text" id="email" name="email" placeholder="Enter Email" required>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
         </div>   
 
         <div> 
             <label for="password" aria-label="Enter Password">Password</label>
             <input type="password" id="password" name="password" placeholder="Enter Password" required>
         </div>
-        <div>
+        <!-- <div>
             <label for="password-repeat" aria-label="Confirm Password">Confirm Password</label>
             <input type="password" id="password-repeat" name="password-repeat" placeholder="Confirm Password" required>
-        </div>
+        </div> -->
 
         <div>
             <input type="submit" aria-label="Submit form" value="Register">
@@ -38,5 +53,6 @@
 
     </form>
     
+    <script src="assets/js/userLogic.js"></script>
 </body>
 </html>
