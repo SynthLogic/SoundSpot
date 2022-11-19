@@ -89,7 +89,47 @@ li  {
   filter: grayscale(100%);
 }
 
-
+/*Contact page*/
+.contact-card{
+  border: 2px solid #EEB66D;
+  border-radius: 5%;
+  max-width: 80%;
+  margin: auto;
+  color: aliceblue;
+  text-align: center;
+  text-decoration: none;
+}
+.id-picture{
+  max-width: 80%;
+}
+#linkedin, #github{
+  color:inherit;
+}
+#linkedin, #github:hover{
+  color:var(--earth-yellow)
+}
+.contact-card>p{
+  margin-bottom: 5px;
+}
+.open{
+  background-color: var(--english-violet);
+  color:inherit;
+  padding: 3px;
+}
+#contact-form{
+  background-color: #EEB66D;
+  text-align: center;
+}
+#contact-form input{
+  margin: auto;
+  padding: 3px;
+}
+#contact-form input[type='submit']{
+  background-color: #39304A;
+  color:inherit;
+  padding: 3px 5px;
+  border-radius: 20%;
+}
 /* forms */
 
 .card {

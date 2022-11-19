@@ -1,5 +1,6 @@
 const loginForm = document.querySelector('#login-form');
 const registerForm = document.querySelector('#register-form');
+const resetPassword = document.querySelector('#reset-password');
 
 if (loginForm != null) {
   loginForm.addEventListener('submit', postRequest);
@@ -7,6 +8,10 @@ if (loginForm != null) {
 
 if (registerForm != null) {
   registerForm.addEventListener('submit', postRequest);
+}
+
+if (resetPassword != null) {
+  resetPassword.addEventListener('submit', patchRequest);
 }
 
 async function postRequest(e) {
@@ -27,12 +32,38 @@ async function postRequest(e) {
     method: 'POST',
     body: formData
   });
-  if (response.statusCode == 200 && isLogin) {
-    alert('You have successfully logged in');
+  if (response.status == 200 && isLogin) {
+    alert('You have successfully logged in.');
+    window.location.href = '../../index.html';
     const data = await response.json();
     sessionStorage.setItem('user', JSON.stringify(data));
   }
-  if (response.statusCode == 200 && isRegister) {
-    alert('You have successfully registered');
+  if (response.status == 200 && isRegister) {
+    alert('You have successfully registered. Please login.');
+    window.location.href = '../../login.html';
+  }
+}
+
+async function patchRequest(e) {
+  e.preventDefault();
+  let formData = new FormData(resetPassword);
+  const email = formData.get('email');
+  const username = formData.get('username');
+  const password = formData.get('password');
+  const repeatPassword = formData.get('password-repeat');
+  if (password !== repeatPassword) {
+    alert('Passwords do not match');
+    return;
+  }
+  let apiUrl =`https://soundspotgame.herokuapp.com/api/user/update/${email}/${username}/`;
+  const response = await fetch(apiUrl, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ password: password })
+  });
+  if (response.status == 200) {
+    alert('You have successfully updated your password');
   }
 }

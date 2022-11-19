@@ -1,3 +1,38 @@
+const nav = document.querySelector('#nav');
+
+if ('user' in sessionStorage) {
+    nav.innerHTML = `
+    <li>
+        <a href="index.html">Home Page</a>
+    </li>
+    <li>
+        <a href="contact.html">Contact Us</a>
+    </li>
+    <li>
+        <a id="logout">Logout</a>
+    </li>
+    `;
+    const logout = document.querySelector('#logout');
+
+    logout.addEventListener('click', function() {
+        sessionStorage.removeItem('user');
+        nav.innerHTML = `
+        <li>
+            <a href="index.html">Home Page</a>
+        </li>
+        <li>
+            <a href="contact.html">Contact Us</a>
+        </li>
+        <li>
+            <a href="register.html">Register</a>
+        </li>
+        <li>
+            <a href="login.html">Login</a>
+        </li>
+        `
+    });
+}
+
 /*
 Set initial game state
 */
