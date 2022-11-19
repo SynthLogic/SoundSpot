@@ -111,6 +111,25 @@ li  {
 .contact-card>p{
   margin-bottom: 5px;
 }
+.open{
+  background-color: var(--english-violet);
+  color:inherit;
+  padding: 3px;
+}
+#contact-form{
+  background-color: #EEB66D;
+  text-align: center;
+}
+#contact-form input{
+  margin: auto;
+  padding: 3px;
+}
+#contact-form input[type='submit']{
+  background-color: #39304A;
+  color:inherit;
+  padding: 3px 5px;
+  border-radius: 20%;
+}
 /* forms */
 
 .card {
