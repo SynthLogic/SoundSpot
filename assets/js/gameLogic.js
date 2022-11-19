@@ -1,4 +1,8 @@
 /*
+define core*/
+let score = 0
+
+/*
 Get images and audio
 */
 const playButton = document.querySelector("#play-button");
@@ -66,12 +70,17 @@ function showImages(chosenSound) {
 Converts base64 string to an image
 */
 function convertbase64Image(element, file, correct) {
-  element.dataset.correct = correct;
+
   let imageContext = new Image();
   imageContext.src = (`data:${file.contentType};base64,${file.content}`);
   imageContext.width = 100;
   imageContext.height = 100;
+  imageContext.dataset.correct = correct;
   element.appendChild(imageContext);
+
+ /*element.innerText = file.name;*/
+
+
 }
 
 /*
@@ -81,3 +90,27 @@ function startRound() {
   let chosenSound = playSound();
   showImages(chosenSound);
 }
+
+/*
+Select answer
+*/
+
+
+const scoreBoard = document.getElementById('score-board')
+scoreBoard.innerText = score
+
+let buttonList = document.querySelectorAll(".img-option");
+let answer = buttonList.forEach(ans => {
+  ans.addEventListener("click", (e) => {
+    const answer = e.target.getAttribute('data-correct')
+
+    console.log(answer)
+    if (answer) {
+        score++
+        }
+
+})
+  })
+
+
+
