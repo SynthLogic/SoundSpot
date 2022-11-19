@@ -95,17 +95,21 @@ li  {
   border-radius: 5%;
   max-width: 80%;
   margin: auto;
+  color: aliceblue;
+  text-align: center;
+  text-decoration: none;
+}
+.id-picture{
+  max-width: 80%;
+}
+#linkedin, #github{
+  color:inherit;
+}
+#linkedin, #github:hover{
+  color:var(--earth-yellow)
 }
 .contact-card>p{
-  text-align: center;
-}
-.contact-card>div{
-  text-decoration: none;
-  color: whitesmoke;
-  text-align: center;
-}
-.contact-card>a:hover{
-  color:var(--earth-yellow)
+  margin-bottom: 5px;
 }
 /* forms */
 
