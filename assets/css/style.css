@@ -90,7 +90,7 @@ li  {
 }
 
 
-/* Login form */
+/* forms */
 
 .card {
   background-color: #EEB66D;
@@ -99,27 +99,34 @@ li  {
   width: 400px;
   min-height: 300px;
   padding: 10px;
+  border-radius: 10px;
 
-}
-
-#login-form {
-  margin: auto;
-  color: #39304A;
-  width: 350px;
-  padding: 10px;
 }
 
 .card h1 { 
   text-align: center;
   padding: 10px;
   margin:20px 0;
-  font-size: 1.5em;
+  font-size: 30px;
+}
+
+.card p {
+  text-align: left;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .card > div {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+}
+
+
+.card input[type="text"] {
+  padding: 5px;
+  border-radius:10px;
+  border: none;
 }
 
 .card input[type="email"] {
@@ -143,6 +150,14 @@ li  {
   color: white;
   text-transform: uppercase;
 } 
+
+.card input[type="reset"] {
+  margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid #39304A;
+    color: #39304A;
+}
 
 label {
   flex-basis: 100%;
