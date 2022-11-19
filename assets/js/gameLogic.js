@@ -1,21 +1,35 @@
 /*
-Get images and audio
+Get HTML elements
 */
-const playButton = document.querySelector("#play-button");
-let imageOptions = [];
-let soundsToPlay = [];
-let tempArray = [];
+const playButton = document.querySelector('#play-button');
+const submitButton = document.querySelector('#submit-button');
+const scoreBoard = document.querySelector('#scoreboard');
+const imageButtons = Array.from(document.getElementsByClassName('img-option'));
 
 /*
-Add click listener to the play button
+Global variables
 */
-playButton.addEventListener("click", startRound);
+let imageOptions = [];
+let soundsToPlay = [];
+let score = 0;
+let isCorrect = '';
+
+scoreBoard.innerText = score;
+
+/*
+Add click listener to all the buttons
+*/
+playButton.addEventListener('click', startRound);
+
+submitButton.addEventListener('click', submitAnswer);
+
+imageButtons.forEach(b => b.addEventListener('click', registerAnswer));
 
 /*
 IIFE for getting all necessary data from the database
 */
 (async function getData() {
-  const apiUrl = "https://soundspotgame.herokuapp.com/api/file/getall/";
+  const apiUrl = 'https://soundspotgame.herokuapp.com/api/file/getall/';
   const response = await fetch(apiUrl);
   const result = await response.json();
   return result;
@@ -44,7 +58,7 @@ function playSound() {
 Renders correct and 3 random images
 */
 function showImages(chosenSound) {
-  let images = Array.from(document.getElementsByClassName('img-option'));
+  let images = [...imageButtons];
   images.forEach(img => img.innerHTML = '');
   let chosenFile = imageOptions.find(p => p.name == chosenSound);
   let randomIndex = Math.floor(Math.random() * images.length);
@@ -66,9 +80,9 @@ function showImages(chosenSound) {
 Converts base64 string to an image
 */
 function convertbase64Image(element, file, correct) {
-  element.dataset.correct = correct;
   let imageContext = new Image();
   imageContext.src = (`data:${file.contentType};base64,${file.content}`);
+  imageContext.dataset.correct = correct
   imageContext.width = 100;
   imageContext.height = 100;
   element.appendChild(imageContext);
@@ -80,4 +94,31 @@ Starts a game round
 function startRound() {
   let chosenSound = playSound();
   showImages(chosenSound);
+}
+
+/*
+Registers answer to isCorrect variable
+*/
+function registerAnswer(e) {
+  isCorrect = e.target.getAttribute('data-correct');
+}
+
+/*
+Check if answer is correct and update score
+*/
+function submitAnswer() {
+  if (isCorrect == 'true') {
+    increaseScore();
+    alert('Correct answer');
+  } else {
+    alert('Wrong answer');
+  }
+}
+
+/*
+Increment score by 1
+*/
+function increaseScore() {
+  ++score;
+  scoreBoard.innerText = score;
 }
