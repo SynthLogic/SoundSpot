@@ -2,6 +2,7 @@ const popUp = document.getElementById('contact-form');
 const open = document.getElementById('open');
 const btn = document.getElementById('submit')
 
+
 document.addEventListener('load', hideContact());
 
 function hideContact(){
@@ -13,9 +14,6 @@ function hideContact(){
 }
 
 /** Email.JS code */
-function initEmail() {
-    emailjs.init("kKSvuHp7VpOd5maBA");
-};
 
 window.onload = function(){
     console.log('function called')
