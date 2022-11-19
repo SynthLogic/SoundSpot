@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body id="background-img">
     <header>
         <h2 id="small-title">Sound Spot</h1>
             <ul id="nav">
@@ -27,15 +27,21 @@
                 </li>
             </ul>
     </header>
-    <h1>Welcome to SoundSpot</h1>
-    <h2>Rules:</h2>
-    <ul>
-        <li>We'll play you a short sound clip</li>
-        <li>All you need to do is click on the picture that matches the sound</li>
-    </ul>
-    <form>
-        <button formaction='game-page.html' id='play-button'>Play Game</button>
-    </form>
+    <main id="home-box">
+        <div>
+        <h1>Welcome to SoundSpot</h1>
+            <form id="play-game">
+                <button formaction='game-page.html' id='play-button' class="home-play">Play Game</button>
+            </form>
+            <div id="rules"> 
+                <h2>Rules</h2>
+                    <ul>
+                        <li>We'll play you a short sound clip</li>
+                        <li>All you need to do is click on the picture that matches the sound</li>
+                    </ul>
+                </div> 
+        </main>
+    </div>
 </body>
 
 </html>
