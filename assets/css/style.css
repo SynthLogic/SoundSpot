@@ -89,7 +89,24 @@ li  {
   filter: grayscale(100%);
 }
 
-
+/*Contact page*/
+.contact-card{
+  border: 2px solid #EEB66D;
+  border-radius: 5%;
+  max-width: 80%;
+  margin: auto;
+}
+.contact-card>p{
+  text-align: center;
+}
+.contact-card>div{
+  text-decoration: none;
+  color: whitesmoke;
+  text-align: center;
+}
+.contact-card>a:hover{
+  color:var(--earth-yellow)
+}
 /* forms */
 
 .card {
