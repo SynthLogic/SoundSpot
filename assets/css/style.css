@@ -92,6 +92,7 @@ li  {
 /*Contact page*/
 .contact-card{
   border: 2px solid #EEB66D;
+  background-color: rgba(238, 182, 109, 0.716);
   border-radius: 5%;
   max-width: 80%;
   margin: auto;
@@ -123,6 +124,11 @@ li  {
 #contact-form input{
   margin: auto;
   padding: 3px;
+  display: block;
+}
+#contact-form>label{
+  display: block;
+  margin: 3px;
 }
 #contact-form input[type='submit']{
   background-color: #39304A;
