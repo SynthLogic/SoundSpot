@@ -48,7 +48,7 @@ function showImages(chosenSound) {
   images.forEach(img => img.innerHTML = '');
   let chosenFile = imageOptions.find(p => p.name == chosenSound);
   let randomIndex = Math.floor(Math.random() * images.length);
-  convertbase64Image(images[randomIndex], chosenFile);
+  convertbase64Image(images[randomIndex], chosenFile, true);
   let set = new Set();
   set.add(imageOptions.indexOf(chosenFile));
   while (set.size < 4){
@@ -57,20 +57,21 @@ function showImages(chosenSound) {
   set.delete(imageOptions.indexOf(chosenFile));
   let randIdx = [...set];
   images.filter(x => images.indexOf(x) !== randomIndex).forEach(image => {
-      let randomFile = imageOptions[randIdx.pop()]
-      convertbase64Image(image, randomFile);
+      let randomFile = imageOptions[randIdx.pop()];
+      convertbase64Image(image, randomFile, false);
   });
 }
 
 /*
 Converts base64 string to an image
 */
-function convertbase64Image(element, file) {
-  let imageContext = new Image() 
+function convertbase64Image(element, file, correct) {
+  element.dataset.correct = correct;
+  let imageContext = new Image();
   imageContext.src = (`data:${file.contentType};base64,${file.content}`);
   imageContext.width = 100;
   imageContext.height = 100;
-  element.appendChild(imageContext)
+  element.appendChild(imageContext);
 }
 
 /*
