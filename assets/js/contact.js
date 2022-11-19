@@ -6,9 +6,9 @@ document.addEventListener('load', hideContact());
 function hideContact(){
     if (popUp.style.display === "none") {
         popUp.style.display = "block";
-      } else {
+    } else {
         popUp.style.display = "none";
-      }
+    }
 }
 
 /** Email.JS code */
