@@ -21,8 +21,6 @@ Add click listener to all the buttons
 */
 playButton.addEventListener('click', startRound);
 
-submitButton.addEventListener('click', submitAnswer);
-
 imageButtons.forEach(b => b.addEventListener('click', registerAnswer));
 
 /*
@@ -88,18 +86,19 @@ function convertbase64Image(element, file, correct) {
   element.appendChild(imageContext);
 }
 
+
 /*
 Starts a game round
 */
 function startRound() {
   let chosenSound = playSound();
   showImages(chosenSound);
-
 }
 
 /*
 Registers answer to isCorrect variable
 */
+
 function registerAnswer(e) {
   isCorrect = e.target.getAttribute('data-correct');
   submitAnswer()
@@ -120,6 +119,7 @@ function submitAnswer() {
     document.getElementById('gameboard').style.backgroundColor='#EEB66D'
 }
   const myTimeout = setTimeout(normalColor, 1000);
+
   startRound()
 }
 
@@ -130,4 +130,6 @@ function increaseScore() {
   ++score;
   scoreBoard.innerText = score;
 }
+
+
 

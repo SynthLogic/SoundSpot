@@ -25,18 +25,13 @@
             </ul>
     </header>
 <div id="gameboard">
-    <div>
-        <button id="start-button">Start</button>
-        <button id="play-button">Play</button>
-        <button id="submit-button">Submit</button>
-        <button id="reset-button">Reset</button>
+    <p id="score-holder">
+        Score: <span id="scoreboard"></span>
+    </p>
+    <div id="play-reset">
+        <button id="play-button" class="play-reset"> <i class="fas fa-play-circle"></i>Play</button>
+        <button id="reset-button" class="play-reset"><i class="fas fa-redo"></i>Reset</button>
     </div>
-    <div>
-        <p>
-            Score: <span id="scoreboard"></span>
-        </p>
-    </div>
-    <div id="game-grid">
         <!-- <div class="questionImg">
             <img src="assets/images/118433811.png" style="filter:invert(100%)" alt="PLACEHOLDER">
         </div> -->
@@ -46,16 +41,15 @@
             <div class="img-option"></div>
             <div class="img-option"></div>
         </div>
-    </div>
+
 
     <!-- Final score modal -->
     <div id="game-modal" class="modal">
-        <div>
-
-            <p>You answered <span class="game-score"></span> questions correctly.</p>
-        </div>
     </div>
 </div>
+
+
+<script src="https://kit.fontawesome.com/d055bf150c.js" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/gameLogic.js"></script>
 </body>
