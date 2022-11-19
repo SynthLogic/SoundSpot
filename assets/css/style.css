@@ -30,6 +30,9 @@ header {
 #small-title {
   margin-left: 10px;
   padding: 20px;
+  font-size: 32px;
+  text-shadow: 1px 5px 10px;
+
 }
 
 #nav {
@@ -93,20 +96,15 @@ li  {
   background-color: #EEB66D;
   margin: auto;
   color: #39304A;
-  width: 50%;
+  width: 400px;
   min-height: 300px;
   padding: 10px;
 
 }
 
 #login-form {
-  /* left      : 50%;
-  top       : 50%;
-  position  : absolute;
-  transform : translate(-50%, -50%); */
   margin: auto;
   color: #39304A;
-  /* background-color: rgba(205, 177, 177, 0.5); */
   width: 350px;
   padding: 10px;
 }
@@ -124,7 +122,7 @@ li  {
   margin-bottom: 10px;
 }
 
-.card input[type="text"] {
+.card input[type="email"] {
   padding: 5px;
   border-radius:10px;
   border: none;
@@ -160,9 +158,14 @@ label {
   padding: 5px;
 }
 
-@media only screen and (max-width: 720px) {
-.card {
-  width: 90%;
-}
+@media only screen and (max-width: 500px) {
+
+  #small-title {
+    font-size: 28px;
+  }
+  .card {
+    width: 80%;
+  }
+
 }
   
