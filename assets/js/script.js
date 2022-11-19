@@ -36,6 +36,7 @@ const gameModal = {
         document.getElementById('game-modal').style.display = 'none';
     }
 }
+
 /*
 Allows players to click off modal to close.
 */
@@ -57,6 +58,9 @@ window.addEventListener('click', function(event) {
     }
     if (event.target.nodeName === 'BUTTON' && event.target.id === 'reset-button') {
         resetGame();
+    }
+    if (event.target.classList.contains('option')) {
+        answerQuestion(event.target);
     }
 });
 
@@ -80,84 +84,38 @@ function resetGame() {
     const startButton = document.getElementById('start-button');
     const playButton = document.getElementById('play-button');
     const gameGrid = document.getElementById('game-grid');
+    const chosenOption = document.getElementsByClassName('chosen');
     state.resetGame();
     startButton.disabled = false;
     playButton.disabled = true;
     startButton.style.cursor = 'pointer';
     gameGrid.style.cursor = 'auto';
+    for (let i = 0; i < chosenOption.length; i++) {
+        chosenOption[i].classList.remove('chosen');
+    };
 }
 
 /*
-Get images and audio
+Determine if player's choice is correct or not
 */
-const playButton = document.querySelector("#play-button");
-let imageOptions = [];
-let soundsToPlay = [];
+function answerQuestion(option) {
+    if(!state.isPlaying) return;
+    option.classList.add('chosen');
+    if(option.classList.contains('chosen')) return;
 
-async function getData() {
-    const apiUrl = "https://soundspotgame.herokuapp.com/api/file/getall/";
-    const response = await fetch(apiUrl);
-    const result = await response.json();
-    return result;
-  }
+    const playerResponse = document.getElementsByClassName('chosen')[0];
+    const correctResponse = question.getElementById('correct') // Where question is provided by the array of questions provided
 
-  getData().then(files => {
-    files.forEach(file => {
-        if (file.contentType == 'audio/mpeg' ) {
-            soundsToPlay.push(file);
-        } else if (file.contentType == "image/png") {
-            imageOptions.push(file)
+    option.classList.add('chosen');   
+
+    if (playerResponse === correctResponse){
+        const scoreboard = document.getElementById('scoreboard')
+        state.incrementScore;
+        state.incrementQuestions;
+        scoreboard.innerHTML = score;
+        if(state.questionsAnswered === 10){
+            gameModal.showModal();
         }
-
-    });
-  });
-
-  playButton.addEventListener("click", startRound);
-
-function playSound() {
-  let randomSound = soundsToPlay[Math.floor(Math.random() * soundsToPlay.length)];
-  let audioContext = new Audio(`data:${randomSound.contentType};base64,${randomSound.content}`);
-  audioContext.play();
-}
-
-getData().then(images => {
-    images.forEach(image => {
-        imageOptions.push(image);
-    });
-  });
-
-
-const base64img = getData();
-function Base64ToImage(base64img, callback) {
-    const img = new Image();
-    img.onload = function() {
-        callback(img);
+        return;
     };
-    img.src = base64img;
-}
-Base64ToImage(base64img, function(img) {
-    forEach(option => {
-        options = document.getElementsByclass('option')
-        options.document.createElement('button')
-        options.appendChild(img);
-    })
-
-
-});
-
-function showImages () {
-    let images = Array.from(document.getElementsByClassName('option'));
-    images.forEach(image => {
-        let randomImage = imageOptions[Math.floor(Math.random() * imageOptions.length)];
-        let imageContext = new Image() 
-        imageContext.src = (`data:${randomImage.contentType};base64,${randomImage.content}`);
-        imageContext.width=100;
-        imageContext.height=100;
-        image.appendChild(imageContext)
-    })
-}
-
-function startRound() {
-    showImages();
-    playSound();
 }
