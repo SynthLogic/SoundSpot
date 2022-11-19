@@ -222,4 +222,54 @@ label {
   }
 
 }
+
+/* game */
+
+#gameboard {
+  background-color: #EEB66D;
+  margin: auto;
+  color: #39304A;
+  width: 60%;
+  min-height: 500px;
+  padding: 16px;
+  border-radius: 10px;
+}
+.img-option {
+  width: 25%;
+  height: auto;
+  float: right;
+  margin-top: 10%;
+
+}
+.img-option:hover {
+margin-top: 8%;
+color: #39304A;
+}
+
+
+.img-section {
+  width: 100%;
+  float: left;
+}
+
+#score-holder {
+  font-size: 50px;
+  width: 50%;
+
+}
+
+#scoreboard {
+  font-size: 40px;
+}
   
+#play-reset {
+  float: right;
+}
+.play-reset {
+  width: 150px;
+  height: 40px;
+  font-size: 30px;
+  background-color: #EEB66D;
+  border-radius: 10px;
+}
+
