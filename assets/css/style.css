@@ -182,4 +182,35 @@ label {
   }
 
 }
+
+/* game */
+
+#gameboard {
+  background-color: #EEB66D;
+  margin: auto;
+  color: #39304A;
+  width: 60%;
+  min-height: 500px;
+  padding: 16px;
+  border-radius: 10px;
+}
+.img-option {
+  width: 25%;
+  height: auto;
+  float: right;
+margin-top: 15%;
+
+}
+.img-option:hover {
+margin-top: 12%;
+color: #39304A;
+}
+
+
+.img-section {
+  float:left;
+  width: 100%;
+  margin-left: 5%;
+  border: 1px;
+}
   

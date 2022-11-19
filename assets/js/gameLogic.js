@@ -94,6 +94,7 @@ Starts a game round
 function startRound() {
   let chosenSound = playSound();
   showImages(chosenSound);
+
 }
 
 /*
@@ -101,18 +102,25 @@ Registers answer to isCorrect variable
 */
 function registerAnswer(e) {
   isCorrect = e.target.getAttribute('data-correct');
+  submitAnswer()
 }
 
 /*
 Check if answer is correct and update score
 */
 function submitAnswer() {
+
   if (isCorrect == 'true') {
     increaseScore();
-    alert('Correct answer');
+    document.getElementById('gameboard').style.backgroundColor='green'
   } else {
-    alert('Wrong answer');
+    document.getElementById('gameboard').style.backgroundColor='red'
   }
+  const normalColor = () => {
+    document.getElementById('gameboard').style.backgroundColor='#EEB66D'
+}
+  const myTimeout = setTimeout(normalColor, 1000);
+  startRound()
 }
 
 /*
@@ -122,3 +130,4 @@ function increaseScore() {
   ++score;
   scoreBoard.innerText = score;
 }
+
