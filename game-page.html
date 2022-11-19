@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>SoundSpot</title>
+</head>
+
+<body>
+    <header>
+        <h2 id="small-title">Sound Spot</h1>
+        <a href="index.html">Home Page</a>
+        <a href="contact.html">Contact Us</a>
+    </header>
+    <div>
+        <button id="start-button">Start</button>
+        <button id="play-button" disabled>Play</button>
+        <button id="reset-button">Reset</button>
+    </div>
+    <div>
+        <p>
+            Score: <span id="scoreboard">0</span>
+        </p>
+    </div>
+    <div id="game-grid">
+        <!-- <div class="questionImg">
+            <img src="assets/images/118433811.png" style="filter:invert(100%)" alt="PLACEHOLDER">
+        </div> -->
+        <div class="img-section">
+            <div class="img-option"></div>
+            <div class="img-option"></div>
+            <div class="img-option"></div>
+            <div class="img-option"></div>
+        </div>
+    </div>
+
+    <!-- Final score modal -->
+    <div id="game-modal" class="modal">
+        <div>
+            <p>You answered <span class="game-score"></span> questions correctly.</p>
+        </div>
+    </div>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/gameLogic.js"></script>
+</body>
+
+</html>

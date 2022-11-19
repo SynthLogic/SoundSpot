@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>SoundSpot - Contact Us!</title>
+</head>
+<header>
+    <h2 id="small-title">Sound Spot</h1>
+        <a href="index.html">Home Page</a>
+        <a href="contact.html">Contact Us</a>
+</header>
+
+<body>
+    <!--Sample contact card-->
+    <div class="contact-card">
+        <img>
+        <h3>
+            <!--Name-->
+        </h3>
+        <p>
+            <!--Bio-->
+        </p>
+        <div>
+            <!--Links-->
+            <a href="">GitHub</a>
+            <a href="">LinkedIn</a>
+        </div>
+    </div>
+    <!--Email.JS pop-up section-->
+    <section>
+        <!--Placeholder text-->
+        <p>Need help? send us an email here:</p>
+        <button id="open" onclick="hideContact()">Contact Us</button>
+        <section id="contact-form">
+            <p> this is where the emails will go</p>
+        </section>
+    </section>
+    <script src="assets/js/contact.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("kKSvuHp7VpOd5maBA");
+        })();
+    </script>
+</body>
+
+</html>
