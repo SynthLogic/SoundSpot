@@ -19,6 +19,10 @@ html {
   background: rgba(57,48,74, 0.9) url('../images/home-background.jpg') no-repeat center center;
 }
 
+#profile-background {
+  background: rgba(57,48,74, 0.9) url('../images/profile-background1.jpg') no-repeat center center;
+}
+
 body {
   width: 100%;
   background: #39304A;
@@ -288,7 +292,7 @@ li  {
   padding: 10px;
   border-radius: 10px;
   background-color: #39304A;
-  color: white;
+  color: #fafafa;
   text-transform: uppercase;
 } 
 
@@ -313,6 +317,32 @@ label {
   text-decoration: none;
   padding: 5px;
 }
+
+/* profile page */
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color:rgba(238, 182, 109, 0.9);
+}
+
+.center > div,
+.center > form {
+  padding: 5px;
+}
+
+#profile-photo {
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-img {
+  width: 150px;
+  height: 150px;
+}
+
 
 @-webkit-keyframes wiggle {
   0% {transform: scale(1);}
@@ -360,12 +390,13 @@ label {
 
 /* game */
 
+
 #gameboard {
   background-color: #EEB66D;
   margin: auto;
   color: #39304A;
-  width: 60%;
-  min-height: 500px;
+  width: 80%;
+  min-height: 540px;
   padding: 16px;
   border-radius: 10px;
 }
@@ -383,7 +414,7 @@ label {
 
 .img-section {
   width: 100%;
-  height: 300px;
+  height: 200px;
   display: grid;
   grid-auto-flow: column;
   justify-content: space-evenly;
@@ -481,4 +512,68 @@ label {
 
 .hide {
   display:none;
+}
+
+/* tooltip */
+#tooltip-holder {
+  width: 100%;
+  height: 60px;
+  display: grid;
+  place-content: start center;
+}
+
+#tooltip {
+  width: 100px;
+  display: none;
+  place-content: center center;
+  z-index: 99;
+  background: #39304A;
+  padding: 10px;
+  font-size: 1rem;
+  color: #EEB66D;
+  border-radius: 10px;
+  animation: fadeIn 0.6s;
+}
+
+#tooltip:before {
+  content: "";
+  border: 12px solid transparent;
+  border-top: 8px solid #39304A;
+}
+
+@keyframes fadeIn {
+from {
+ opacity: 0;
+}
+to {
+ opacity: 1;
+}
+}
+
+
+/* loader */
+
+#loader {
+  border: 16px solid #39304A;
+  border-radius: 50%;
+  border-top: 16px solid #EEB66D;
+  margin-left: 45%;
+  top: 20%;
+  position: absolute;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
