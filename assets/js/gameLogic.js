@@ -97,7 +97,8 @@ Converts base64 string to an image
 function convertbase64Image(element, file, correct) {
   let imageContext = new Image();
   imageContext.src = (`data:${file.contentType};base64,${file.content}`);
-  imageContext.dataset.correct = correct
+  imageContext.dataset.name = file.name;
+  imageContext.dataset.correct = correct;
   imageContext.width = 128;
   imageContext.height = 128;
   element.appendChild(imageContext);
@@ -126,7 +127,6 @@ function resetGame() {
   } else {
     location.reload();
   }
-  alert('Please start again');
 }
 
 /*
