@@ -120,9 +120,9 @@ function registerAnswer(e) {
   images.forEach(img => img.innerHTML = '');
   if (isCorrect == 'true') {
     increaseScore();
-    gameBoard.style.backgroundColor = 'green';
+    gameBoard.style.backgroundColor = '#A5BA8C';
   } else {
-    gameBoard.style.backgroundColor = 'red';
+    gameBoard.style.backgroundColor = '#CD3C57';
   }
   setTimeout(resetColor, 1000);
   calculateProgressWidth();
@@ -148,11 +148,14 @@ const showModal = () => {
     closeButton.addEventListener('click', closeModal);
 }
 /*
-Close model with the button
+Close modeland instead show the game and reset the score
 */
 const closeModal = () => {
+  score = 0
+  scoreBoard.innerText = score
   modal.classList.add('hide')
   gameBoard.classList.remove('hide')
+
 }
 
 
