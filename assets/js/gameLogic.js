@@ -51,6 +51,7 @@ IIFE for getting all necessary data from the database
   });
 }).then( () => { 
   playButton.disabled = false
+  document.getElementById('loader').classList.add('hide')
   sessionStorage.setItem('sounds', JSON.stringify(soundsToPlay));
 });
 
@@ -97,7 +98,8 @@ Converts base64 string to an image
 function convertbase64Image(element, file, correct) {
   let imageContext = new Image();
   imageContext.src = (`data:${file.contentType};base64,${file.content}`);
-  imageContext.dataset.correct = correct
+  imageContext.dataset.name = file.name;
+  imageContext.dataset.correct = correct;
   imageContext.width = 128;
   imageContext.height = 128;
   element.appendChild(imageContext);
@@ -126,7 +128,6 @@ function resetGame() {
   } else {
     location.reload();
   }
-  alert('Please start again');
 }
 
 /*
@@ -204,33 +205,20 @@ function calculateProgressWidth() {
   root.style.setProperty('--width', progressBarWidth + "%");
 }
 
-// window.onload is optional since it depends on the way in which you fire events
+
 window.onload=function(){
 
-  // selecting the elements for which we want to add a tooltip
 
-  const tooltipPlay = document.getElementById("tooltip-play");
-  
-  // change display to 'block' on mouseover
-  playButton.addEventListener('mouseover', () => {
-    tooltipPlay.style.display = 'block';
-  }, false);
-  
-  // change display to 'none' on mouseleave
-  playButton.addEventListener('mouseleave', () => {
-    tooltipPlay.style.display = 'none';
-  }, false);
 
-  const tooltipReset = document.getElementById("tooltip-reset");
+  const tooltip = document.getElementsByClassName("tooltip");
+  tooltip.forEach(p => p.innerHTML=getAttribute('data-name'))
+ 
+  imageButtons.forEach(hoverImg => hoverImg.addEventListener('mouseover', () => {
+    tooltip.style.display = 'block';
+  }), false);
   
-  // change display to 'block' on mouseover
-  resetButton.addEventListener('mouseover', () => {
-    tooltipReset.style.display = 'block';
-  }, false);
-  
-  // change display to 'none' on mouseleave
-  resetButton.addEventListener('mouseleave', () => {
-    tooltipReset.style.display = 'none';
-  }, false);
-  
+  imageButtons.forEach(stopHover => stopHover.addEventListener('mouseleave', () => {
+    tooltip.style.display = 'none';
+  }), false);
   }
+
