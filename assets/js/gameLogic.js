@@ -90,8 +90,8 @@ function convertbase64Image(element, file, correct) {
   let imageContext = new Image();
   imageContext.src = (`data:${file.contentType};base64,${file.content}`);
   imageContext.dataset.correct = correct
-  imageContext.width = 100;
-  imageContext.height = 100;
+  imageContext.width = 128;
+  imageContext.height = 128;
   element.appendChild(imageContext);
 }
 
