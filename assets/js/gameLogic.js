@@ -151,10 +151,10 @@ function registerAnswer(e) {
   } else {
     gameBoard.style.backgroundColor = '#CD3C57';
   }
-  playButton.disabled = false
   hideTooltip()
   setTimeout(resetColor, 1000);
   calculateProgressWidth();
+
 }
 
 /*
@@ -165,6 +165,7 @@ const resetColor = () => {
   if (soundsToPlay.length == 0) {
     showModal();
   };
+  playButton.disabled = false
 }
 
 /*
