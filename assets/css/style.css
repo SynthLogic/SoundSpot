@@ -67,6 +67,7 @@ header {
 }
 
 a {
+  cursor: pointer;
   color: #39304A;
   text-decoration: none;
 }
@@ -92,6 +93,10 @@ li  {
   margin: 20px 0;
   font-size: 30px;
   text-transform: uppercase;
+}
+
+#start-game {
+  cursor: pointer;
 }
 
 #rules {
@@ -275,6 +280,7 @@ li  {
 }
 
 .card input[type="submit"] {
+  cursor: pointer;
   width: 100%;
   margin-top: 25px;
   padding: 10px;
@@ -285,6 +291,7 @@ li  {
 } 
 
 .card input[type="reset"] {
+  cursor: pointer;
   margin-top: 10px;
     padding: 5px;
     border-radius: 10px;
@@ -327,6 +334,7 @@ label {
 }
 
 #profile-img {
+  cursor: pointer;
   width: 150px;
   height: 150px;
 }
