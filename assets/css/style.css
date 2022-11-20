@@ -560,6 +560,14 @@ to {
 }
 }
 
+#user-info {
+  text-align: start;
+}
+
+#user-info div {
+  margin-bottom: 16px;
+}
+
 
 /* loader */
 

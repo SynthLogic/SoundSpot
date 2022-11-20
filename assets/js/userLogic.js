@@ -33,13 +33,13 @@ async function postRequest(e) {
     body: formData
   });
   if (response.status == 200 && isLogin) {
-    swal('You have successfully logged in.');
+    alert('You have successfully logged in.');
     window.location.href = '../../index.html';
     const data = await response.json();
     sessionStorage.setItem('user', JSON.stringify(data));
   }
   if (response.status == 200 && isRegister) {
-    swal('You have successfully registered. Please login.');
+    alert('You have successfully registered. Please login.');
     window.location.href = '../../login.html';
   }
 }
