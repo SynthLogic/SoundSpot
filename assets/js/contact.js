@@ -1,6 +1,6 @@
 const popUp = document.getElementById('contact-form');
 const open = document.getElementById('open');
-const btn = document.getElementById('submit')
+const btn = document.getElementById('submit');
 
 
 document.addEventListener('load', hideContact());
@@ -22,8 +22,9 @@ window.onload = function(){
         btn.value = 'Sending...';
         const serviceID = 'default_service';
         const templateID = 'template_93ejbdi';
+        const form = document.getElementById('email-form');
         // these IDs from the previous steps
-        emailjs.sendForm('contact_service', 'contact_form', this)
+        emailjs.sendForm(serviceID, templateID, form, 'kKSvuHp7VpOd5maBA')
             .then(function() {
                 console.log('SUCCESS!');
             }, function(error) {
