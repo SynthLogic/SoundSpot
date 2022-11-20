@@ -72,6 +72,11 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: #745b84 ;
+  transform: scale(1.1);
+}
+
 li  {
   display: flex;
   flex-direction: column;
@@ -79,12 +84,12 @@ li  {
 
 /* home page */
 #home-box {
-
   width: 80%;
   height: 600px;
   margin: auto;
   padding: 25px;
   background-color: rgba(238, 182, 109, 0.9);
+  border-radius: 10px;
 }
 
 #home-box h1 { 
@@ -109,7 +114,6 @@ li  {
   border: 2px dotted #39304A;
   border-radius: 10px;
 }
-
 
 #rules * {
   text-transform: uppercase;
@@ -304,6 +308,12 @@ li  {
   text-transform: uppercase;
 } 
 
+.card input[type="submit"]:hover {
+  background-color:  rgb(255 240 228);
+  color: #39304A;
+  font-weight: bold;
+}
+
 .card input[type="reset"] {
   cursor: pointer;
   margin-top: 10px;
@@ -311,6 +321,12 @@ li  {
     border-radius: 10px;
     border: 2px solid #39304A;
     color: #39304A;
+}
+
+.card input[type="reset"]:hover {
+  color: rgb(255 240 228);
+  background-color: #483b61;
+  font-weight: bold;
 }
 
 label {
@@ -558,6 +574,14 @@ from {
 to {
  opacity: 1;
 }
+}
+
+#user-info {
+  text-align: start;
+}
+
+#user-info div {
+  margin-bottom: 16px;
 }
 
 
