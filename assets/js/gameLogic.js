@@ -11,6 +11,9 @@ const imageButtons = Array.from(document.getElementsByClassName('img-option'));
 const closeButton = document.getElementById('close-modal')
 const modal = document.getElementById('modal');
 const root = document.documentElement;
+const correct = new Audio('./assets/audio/Correct.wav');
+const wrong = new Audio('./assets/audio/Wrong.wav');
+const gameOver = new Audio('./assets/audio/GameOver.wav');
 
 /*
 Global variables
@@ -146,15 +149,16 @@ function registerAnswer(e) {
   let images = [...imageButtons];
   images.forEach(img => img.innerHTML = '');
   if (isCorrect == 'true') {
+    correct.play();
     increaseScore();
     gameBoard.style.backgroundColor = '#A5BA8C';
   } else {
+    wrong.play();
     gameBoard.style.backgroundColor = '#CD3C57';
   }
   hideTooltip()
   setTimeout(resetColor, 1000);
   calculateProgressWidth();
-
 }
 
 /*
@@ -163,9 +167,10 @@ Reset background colour of game board
 const resetColor = () => {
   gameBoard.style.backgroundColor = '#EEB66D';
   if (soundsToPlay.length == 0) {
+    gameOver.play();
     showModal();
   };
-  playButton.disabled = false
+  playButton.disabled = false;
 }
 
 /*
