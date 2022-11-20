@@ -126,7 +126,7 @@ li  {
   justify-content: center;
 }
 
-.home-play {
+.home-play, #open {
   width: 200px;
   height: 100px;
   margin: 25px 10px 25px 10px;
@@ -219,17 +219,17 @@ li  {
 .contact-card>p{
   margin-bottom: 5px;
 }
-.open{
-  background-color: var(--english-violet);
-  color:inherit;
-  padding: 3px;
+#open{
+  margin:10% 40% 5%;
 }
 #contact-form{
   background-color: #EEB66D;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 #contact-form input{
-  margin: auto;
+  margin: 2.5px;
   padding: 3px;
   display: block;
 }
@@ -239,7 +239,7 @@ li  {
 }
 #contact-form input[type='submit']{
   background-color: #39304A;
-  color:inherit;
+  color:white;
   padding: 3px 5px;
   border-radius: 20%;
 }
