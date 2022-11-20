@@ -242,6 +242,9 @@ if ('user' in sessionStorage) {
         <a href="contact.html">Contact Us</a>
     </li>
     <li>
+        <a href="profile.html">Profile</a>
+    </li>
+    <li>
         <a href="index.html" id="logout">Logout</a>
     </li>
     `;
