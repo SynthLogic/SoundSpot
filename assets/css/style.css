@@ -17,10 +17,12 @@ html {
 
 #background-img {
   background: rgba(57,48,74, 0.9) url('../images/home-background.jpg') no-repeat center center;
+  background-size: cover;
 }
 
 #profile-background {
   background: rgba(57,48,74, 0.9) url('../images/profile-background1.jpg') no-repeat center center;
+  background-size: cover;
 }
 
 body {
