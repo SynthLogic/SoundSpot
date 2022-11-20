@@ -181,6 +181,7 @@ const closeModal = () => {
   scoreBoard.innerText = score;
   modal.classList.add('hide');
   gameBoard.classList.remove('hide');
+  resetGame()
 }
 
 /*
