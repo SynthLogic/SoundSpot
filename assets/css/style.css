@@ -300,6 +300,31 @@ label {
   padding: 5px;
 }
 
+/* profile page */
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.center > div,
+.center > form {
+  padding: 5px;
+}
+
+#profile-photo {
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-img {
+  width: 150px;
+  height: 150px;
+}
+
+
 @-webkit-keyframes wiggle {
   0% {transform: scale(1);}
   25% {transform: scale(.9);}
