@@ -128,6 +128,6 @@ function registerAnswer(e) {
 Increment score by 1
 */
 function increaseScore() {
-  ++score;
+  score += 10;
   scoreBoard.innerText = score;
 }
