@@ -174,6 +174,11 @@ const showModal = () => {
   modal.classList.remove('hide');
   gameBoard.classList.add('hide');
     document.getElementById('final-score').innerHTML=scoreBoard.innerHTML;
+    if ('user' in sessionStorage) { 
+      const user = JSON.parse(sessionStorage.getItem('user')); 
+      document.getElementById('username').innerText=user.username
+    }
+
     closeButton.addEventListener('click', closeModal);
 }
 /*
@@ -222,4 +227,41 @@ function showTooltip(e) {
 
 function hideTooltip() {
   toolTip.style.display = 'none';
+}
+
+/* if logged in the navbar change */
+
+const nav = document.querySelector('#nav');
+
+if ('user' in sessionStorage) {
+    nav.innerHTML = `
+    <li>
+        <a href="index.html">Home Page</a>
+    </li>
+    <li>
+        <a href="contact.html">Contact Us</a>
+    </li>
+    <li>
+        <a href="index.html" id="logout">Logout</a>
+    </li>
+    `;
+    const logout = document.querySelector('#logout');
+
+    logout.addEventListener('click', function() {
+        sessionStorage.removeItem('user');
+        nav.innerHTML = `
+        <li>
+            <a href="index.html">Home Page</a>
+        </li>
+        <li>
+            <a href="contact.html">Contact Us</a>
+        </li>
+        <li>
+            <a href="register.html">Register</a>
+        </li>
+        <li>
+            <a href="login.html">Login</a>
+        </li>
+        `
+    });
 }
