@@ -50,7 +50,6 @@ a {
   text-decoration: none;
 }
 
-
 li  {
   display: inline;
 }
@@ -269,11 +268,29 @@ label {
   margin-top: 2.5px;
 }
 
+#progress-bar {
+  width: 25%;
+  height: 30px;
+  display: grid;
+  border: 2.5px solid #39304A;
+  border-radius: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+#progress {
+  width: var(--width);
+  height: 100%;
+  display: grid;
+  background-color: #39304A;
+}
+
 #play-reset {
   width: 100%;
   display: grid;
   grid-auto-flow: column;
   justify-content: space-around;
+  margin-top: 16px;
 }
 
 .play-reset {
