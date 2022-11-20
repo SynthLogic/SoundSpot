@@ -9,9 +9,17 @@
   padding: 0;
 }
 
+html {
+  height: 100%;
+}
+
+#background-img {
+  background: rgba(57,48,74, 0.9) url('../images/home-background.jpg') no-repeat center center;
+}
+
 body {
   background: #39304A;
-  color: whitesmoke;
+  color: #39304A;
 }
 
 header {
@@ -20,7 +28,7 @@ header {
   margin-bottom: 25px;
   background-color: #EEB66D;
   opacity: 0.8;
-  color: #39304A;
+  
   z-index: 1;
   display: flex;
   justify-content: space-between;
@@ -38,6 +46,7 @@ header {
 #nav {
   margin-right: 10px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   text-shadow: 1px 5px 10px;
 }
@@ -50,9 +59,66 @@ a {
   text-decoration: none;
 }
 
-
 li  {
-  display: inline;
+  display: flex;
+  flex-direction: column;
+}
+
+/* home page */
+#home-box {
+
+  width: 80%;
+  height: 600px;
+  margin: auto;
+  padding: 25px;
+  background-color: rgba(238, 182, 109, 0.9);
+}
+
+#home-box h1 { 
+  text-align: center;
+  padding: 10px;
+  margin: 20px 0;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+#rules {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+#rules * {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 5px;
+}
+
+#rules h2 {
+  font-size: 24px;
+}
+
+#play-game {
+  display: flex;
+  justify-content: center;
+}
+
+.home-play {
+  width: 300px;
+  height: 150px;
+  margin: 25px 10px 25px 10px;
+  padding: 5px;
+  box-shadow:10px 10px 10px #39304A;
+  font-weight: bold;
+  
+}
+
+#rules ul {
+  padding: 10px;
+  margin: 10px 0;
 }
 
 .modal {
@@ -218,7 +284,30 @@ label {
   padding: 5px;
 }
 
+@-webkit-keyframes wiggle {
+  0% {transform: scale(1);}
+  25% {transform: scale(.9);}
+  50% {transform: scale(.8);}
+  75% {transform: scale(.9);}
+  100% {transform: scale(1);}
+}
+
+@keyframes wiggle {
+  0% {transform: scale(1);}
+  25% {transform: scale(.9);}
+  50% {transform: scale(.8);}
+  75% {transform: scale(.9);}
+  100% {transform: scale(1);}
+}
+
 @media only screen and (max-width: 500px) {
+  #home-box h1 {
+    font-size: 24px;
+  }
+
+  #rules h2 {
+    font-size: 20px;
+  }
 
   #small-title {
     font-size: 28px;
@@ -228,4 +317,128 @@ label {
   }
 
 }
-  
+
+/* game */
+
+#gameboard {
+  background-color: #EEB66D;
+  margin: auto;
+  color: #39304A;
+  width: 60%;
+  min-height: 500px;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.img-option {
+  cursor: pointer;
+  width: 25%;
+  height: auto;
+}
+
+.img-option:hover {
+  margin-bottom: 30%;
+  color: #39304A;
+}
+
+.img-section {
+  width: 100%;
+  height: 300px;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+  float: left;
+}
+
+#score-holder {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  place-content: start start;
+  font-size: 40px;
+}
+
+#scoreboard {
+  font-size: 40px;
+  margin-top: 2.5px;
+}
+
+#progress-bar {
+  width: 25%;
+  height: 30px;
+  display: grid;
+  border: 2.5px solid #39304A;
+  border-radius: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+#progress {
+  width: var(--width);
+  height: 100%;
+  display: grid;
+  background-color: #39304A;
+}
+
+#play-reset {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-around;
+  margin-top: 16px;
+}
+
+.play-reset {
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-content: center center;
+  font-size: 70px;
+  background-color: #EEB66D;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.play-reset:active {
+  -webkit-animation: wiggle .25s;
+          animation: wiggle .25s;
+}
+
+#modal {
+  width:40%;
+  margin-left: 30%;
+  margin-bottom: 10px;
+  height:150px;
+  background-color: #EEB66D;
+  color: #39304A;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+#modal p {
+  text-align: center;
+  line-height: 150px;
+  font-size: 180%;
+}
+
+#close-modal {
+  color: #39304A;
+  float: right;
+  font-size: 280%;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  border-color: #39304A;
+  background:none;
+}
+
+#close-modal:hover {
+  color: #EEB66D;
+  background:#39304A;
+}
+
+.hide {
+  display:none;
+}
