@@ -72,19 +72,25 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: #745b84 ;
+  transform: scale(1.1);
+}
+
 li  {
   display: flex;
   flex-direction: column;
 }
 
 /* home page */
-#home-box {
 
+#home-box {
   width: 80%;
   height: 600px;
   margin: auto;
   padding: 25px;
   background-color: rgba(238, 182, 109, 0.9);
+  border-radius: 10px;
 }
 
 #home-box h1 { 
