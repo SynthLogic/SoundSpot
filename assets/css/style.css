@@ -360,11 +360,12 @@ label {
 
 /* game */
 
+
 #gameboard {
   background-color: #EEB66D;
   margin: auto;
   color: #39304A;
-  width: 60%;
+  width: 80%;
   min-height: 540px;
   padding: 16px;
   border-radius: 10px;

@@ -150,6 +150,7 @@ function registerAnswer(e) {
   } else {
     gameBoard.style.backgroundColor = '#CD3C57';
   }
+  hideTooltip()
   setTimeout(resetColor, 1000);
   calculateProgressWidth();
 }
