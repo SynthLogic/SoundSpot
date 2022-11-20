@@ -17,6 +17,12 @@ html {
 
 #background-img {
   background: rgba(57,48,74, 0.9) url('../images/home-background.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+#profile-background {
+  background: rgba(57,48,74, 0.9) url('../images/profile-background1.jpg') no-repeat center center;
+  background-size: cover;
 }
 
 body {
@@ -61,6 +67,7 @@ header {
 }
 
 a {
+  cursor: pointer;
   color: #39304A;
   text-decoration: none;
 }
@@ -86,6 +93,10 @@ li  {
   margin: 20px 0;
   font-size: 30px;
   text-transform: uppercase;
+}
+
+#start-game {
+  cursor: pointer;
 }
 
 #rules {
@@ -283,6 +294,7 @@ li  {
 }
 
 .card input[type="submit"] {
+  cursor: pointer;
   width: 100%;
   margin-top: 25px;
   padding: 10px;
@@ -293,6 +305,7 @@ li  {
 } 
 
 .card input[type="reset"] {
+  cursor: pointer;
   margin-top: 10px;
     padding: 5px;
     border-radius: 10px;
@@ -313,6 +326,33 @@ label {
   text-decoration: none;
   padding: 5px;
 }
+
+/* profile page */
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color:rgba(238, 182, 109, 0.9);
+}
+
+.center > div,
+.center > form {
+  padding: 5px;
+}
+
+#profile-photo {
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-img {
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
+}
+
 
 @-webkit-keyframes wiggle {
   0% {transform: scale(1);}

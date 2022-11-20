@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/images/118433811.png">
-    <title>Sound Spot - Home!</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <title>Sound Spot - Register!</title>
 </head>
-
-<body id="background-img">
+<body id="profile-background">
     <header>
         <h2 id="small-title">Sound Spot</h2>
             <ul id="nav">
@@ -28,23 +26,30 @@
                 </li>
             </ul>
     </header>
-    <main id="home-box">
+    <main  class="card center">
+        <h1>Profile</h1>
+        <form>
+            <div id="profile-photo">
+                <label for="profile-img" aria-label="profile photo">Profile Photo</label>
+                <input id="profile-img" type="file" name="profile-photo">
+            </div>
+        </form>
+        <div id="username">Username</div>
+        <div id="email">Email</div>
         <div>
-        <h1>Welcome to Sound Spot</h1>
-            <form id="play-game">
-                <button id="start-game" formaction='game-page.html' class="home-play">Start Game</button>
-            </form>
-            <div id="rules"> 
-                <h2>How to play</h2>
-                    <ul>
-                        <li>We'll play you a short sound clip</li>
-                        <li>All you need to do is click on the picture that matches the sound</li>
-                    </ul>
-                </div> 
-            </div>   
+            <div>Highest Score</div>
+            <div id="high-score">999</div>
+        </div>
+        <div>
+            <div>Latest Score</div>
+            <div id="last-score">099</div>
+        </div>
+        <div>
+            <div>Last Time Played</div>
+            <div id="last-played">Today</div>
+        </div>
     </main>
 
-    <script src="assets/js/script.js"></script>
+    
 </body>
-
 </html>
