@@ -176,7 +176,7 @@ const closeModal = () => {
   scoreBoard.innerText = score
   modal.classList.add('hide')
   gameBoard.classList.remove('hide')
-
+  resetGame()
 }
 
 /*
@@ -204,21 +204,4 @@ function calculateProgressWidth() {
   }
   root.style.setProperty('--width', progressBarWidth + "%");
 }
-
-
-window.onload=function(){
-
-
-
-  const tooltip = document.getElementsByClassName("tooltip");
-  tooltip.forEach(p => p.innerHTML=getAttribute('data-name'))
- 
-  imageButtons.forEach(hoverImg => hoverImg.addEventListener('mouseover', () => {
-    tooltip.style.display = 'block';
-  }), false);
-  
-  imageButtons.forEach(stopHover => stopHover.addEventListener('mouseleave', () => {
-    tooltip.style.display = 'none';
-  }), false);
-  }
 
