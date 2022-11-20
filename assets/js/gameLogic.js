@@ -6,6 +6,7 @@ const resetButton = document.querySelector('#reset-button');
 const submitButton = document.querySelector('#submit-button');
 const scoreBoard = document.querySelector('#scoreboard');
 const gameBoard = document.querySelector('#gameboard');
+const toolTip = document.querySelector('#tooltip');
 const imageButtons = Array.from(document.getElementsByClassName('img-option'));
 const closeButton = document.getElementById('close-modal')
 const modal = document.getElementById('modal');
@@ -30,7 +31,11 @@ playButton.addEventListener('click', startRound, false);
 
 resetButton.addEventListener('click', resetGame, false)
 
-imageButtons.forEach(b => b.addEventListener('click', registerAnswer, false));
+imageButtons.forEach(b => {
+  b.addEventListener('click', registerAnswer, false);
+  b.addEventListener('mouseenter', showTooltip, false);
+  b.addEventListener('mouseleave', hideTooltip, false);
+});
 
 /*
 IIFE for getting all necessary data from the database
@@ -49,7 +54,7 @@ IIFE for getting all necessary data from the database
         imageOptions.push(file);
       }
   });
-}).then( () => { 
+}).then(() => { 
   playButton.disabled = false
   document.getElementById('loader').classList.add('hide')
   sessionStorage.setItem('sounds', JSON.stringify(soundsToPlay));
@@ -155,7 +160,7 @@ Reset background colour of game board
 const resetColor = () => {
   gameBoard.style.backgroundColor = '#EEB66D';
   if (soundsToPlay.length == 0) {
-    showModal()
+    showModal();
   };
 }
 
@@ -163,20 +168,19 @@ const resetColor = () => {
 Shows Model with final score
 */
 const showModal = () => {
-  modal.classList.remove('hide')
-  gameBoard.classList.add('hide')
-    document.getElementById('final-score').innerHTML=scoreBoard.innerHTML
+  modal.classList.remove('hide');
+  gameBoard.classList.add('hide');
+    document.getElementById('final-score').innerHTML=scoreBoard.innerHTML;
     closeButton.addEventListener('click', closeModal);
 }
 /*
 Close modeland instead show the game and reset the score
 */
 const closeModal = () => {
-  score = 0
-  scoreBoard.innerText = score
-  modal.classList.add('hide')
-  gameBoard.classList.remove('hide')
-  resetGame()
+  score = 0;
+  scoreBoard.innerText = score;
+  modal.classList.add('hide');
+  gameBoard.classList.remove('hide');
 }
 
 /*
@@ -205,3 +209,13 @@ function calculateProgressWidth() {
   root.style.setProperty('--width', progressBarWidth + "%");
 }
 
+function showTooltip(e) {
+  const image = e.target.firstElementChild;
+  const name = image.getAttribute('data-name');
+  toolTip.innerText = name;
+  toolTip.style.display = 'grid';
+}
+
+function hideTooltip() {
+  toolTip.style.display = 'none';
+}
