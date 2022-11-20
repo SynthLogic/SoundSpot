@@ -180,7 +180,7 @@ li  {
 /*Contact page*/
 #contact-title{
   color:white;
-  margin-bottom: 5px;
+  padding-left: 1rem;
 }
 .contact-card{
   border: 2px solid #EEB66D;
