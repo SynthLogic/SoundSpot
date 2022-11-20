@@ -506,7 +506,7 @@ label {
   width:40%;
   margin-left: 30%;
   margin-bottom: 10px;
-  height:150px;
+  height:auto;
   background-color: #EEB66D;
   color: #39304A;
   border-radius: 10px;
@@ -516,7 +516,7 @@ label {
 #modal p {
   text-align: center;
   line-height: 150px;
-  font-size: 180%;
+  font-size: 120%;
 }
 
 #close-modal {
