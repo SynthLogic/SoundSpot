@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/images/118433811.png">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>SoundSpot - Contact Us!</title>
+    <title>Sound Spot - Contact Us!</title>
 </head>
 <header>
-    <h2 id="small-title">Sound Spot</h1>
+    <h2 id="small-title">Sound Spot</h2>
         <ul id="nav">
             <li>
                 <a href="index.html">Home Page</a>
@@ -18,41 +19,120 @@
                 <a href="contact.html">Contact Us</a>
             </li>
             <li>
+                <a href="register.html">Register</a>
+            </li>
+            <li>
                 <a href="login.html">Login</a>
             </li>
         </ul>
 </header>
-
-<body>
-    <!--Sample contact card-->
-    <div class="contact-card">
-        <img>
-        <h3>
-            <!--Name-->
-        </h3>
-        <p>
-            <!--Bio-->
-        </p>
-        <div>
-            <!--Links-->
-            <a href="">GitHub</a>
-            <a href="">LinkedIn</a>
+<section>
+    <body>
+        <h1 id="contact-title">Meet the Team:</h1>
+        <!--Sample contact card-->
+        <div class="contact-card">
+            <!--Picture here-->
+            <img class="id-picture" src="assets/images/emanuel.jpg">
+            <h3>
+                <!--Name-->
+                Emanuel Gustafzon
+            </h3>
+            <div>
+                <!--Links-->
+                <a href="https://github.com/EmanuelGustafzon" id="github"><i class="fa-brands fa-square-github"></i></a>
+                <a href="https://www.linkedin.com/in/emanuel-gustafzon-software-developer/" id="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <p>
+                <!--Bio-->
+                CI Alumni | Sweden
+            </p>
         </div>
-    </div>
+        <div class="contact-card">
+            <!--Picture here-->
+            <img class="id-picture" src="assets/images/amy.jpg">
+            <h3>
+                Amy Lewis
+            </h3>
+            <div>
+                <!--Links-->
+                <a href="https://github.com/alcl2000" id="github"><i class="fa-brands fa-square-github"></i></a>
+                <a href="" id="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <p>
+                CI Student | London
+            </p>
+        </div>
+        <div class="contact-card">
+            <!--Picture here-->
+            <img class="id-picture" src="assets/images/noemi.jpg">
+            <h3>
+                Noemi Chis-Hunyadi
+            </h3>
+            <div>
+                <!--Links-->
+                <a href="https://github.com/noemichis" id="github"><i class="fa-brands fa-square-github"></i></a>
+                <a href="https://www.linkedin.com/in/noemi-chis-hunyadi-b8a31b211/" id="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <p>
+                CI Student | Sligo 
+            </p>
+        </div>
+        <div class="contact-card">
+            <!--Picture here-->
+            <img class="id-picture" src="assets/images/mike.jpg">
+            <h3>
+                Mike Avgeros
+            </h3>
+            <div>
+                <!--Links-->
+                <a href="https://github.com/MikeAvgeros" id="github"><i class="fa-brands fa-square-github"></i></a>
+                <a href="https://www.linkedin.com/in/avgeros" id="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <p>
+                CI Alumni | London 
+            </p>
+        </div>
+        <div class="contact-card">
+            <!--Picture here-->
+            <img class="id-picture" src="assets/images/gina.jpg">
+            <h3>
+                Gina Nikroo
+            </h3>
+            <div>
+                <!--Links-->
+                <a href="https://github.com/GNikroo" id="github"><i class="fa-brands fa-square-github"></i></a>
+                <a href="https://www.linkedin.com/in/gina-nikroo/" id="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <p>
+                CI Student | Sweden
+            </p>
+        </div>
+    </section>
     <!--Email.JS pop-up section-->
     <section>
         <!--Placeholder text-->
         <p>Need help? send us an email here:</p>
         <button id="open" onclick="hideContact()">Contact Us</button>
         <section id="contact-form">
-            <p> this is where the emails will go</p>
+            <form id="email-form">
+                <input type="hidden" id="contact_number" name="contact_number">
+                <label>Name:</label>
+                <input type="text" name="user_name" value="JohnDoe">
+                <label>Email:</label>
+                <input type="email" name="user_email" value="john.doe@gmail.com">
+                <label>Message:</label>
+                <textarea name="message"></textarea>
+                <input id='submit' type="submit" value="Send">
+            </form>
         </section>
     </section>
+    <script src="https://kit.fontawesome.com/927c583c72.js" crossorigin="anonymous"></script>
     <script src="assets/js/contact.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script type="text/javascript">
-        (function () {
-            emailjs.init("kKSvuHp7VpOd5maBA");
-        })();
+        function initEmail(){
+        emailjs.init("kKSvuHp7VpOd5maBA");
+    }
     </script>
 </body>
 

@@ -1,5 +1,7 @@
-const popUp = document.getElementById('contact-form')
-const open = document.getElementById('open')
+const popUp = document.getElementById('contact-form');
+const open = document.getElementById('open');
+const btn = document.getElementById('submit')
+
 
 document.addEventListener('load', hideContact());
 
@@ -13,25 +15,19 @@ function hideContact(){
 
 /** Email.JS code */
 
-const modal = document.getElementById("modal");
-const overlay = document.getElementById("overlay");
-
-function sendMail(contactForm) {
-    modal.classList.remove("open");
-    overlay.classList.remove("open");
-    emailjs.send("gmail", "ms2", {
-        "from_name": contactForm.name.value,
-        "from_email": contactForm.email.value,
-        "message": contactForm.message.value
-    })
-    .then(
-        function() {
-            alert("Thank you for getting in touch!");
-        },
-        function(error) {
-        console.log('FAILED...', error);
-        alert("There was an error with your message. Please try again.");
-        }
-    );
-    return false;  // To block from loading a new page
+window.onload = function(){
+    console.log('function called')
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        btn.value = 'Sending...';
+        const serviceID = 'default_service';
+        const templateID = 'template_93ejbdi';
+        // these IDs from the previous steps
+        emailjs.sendForm('contact_service', 'contact_form', this)
+            .then(function() {
+                console.log('SUCCESS!');
+            }, function(error) {
+                console.log('FAILED...', error);
+            });
+    });
 }

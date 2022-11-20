@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/images/118433811.png">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>SoundSpot - Register</title>
+    <title>Sound Spot - Register!</title>
 </head>
 <body>
     <header>
@@ -18,6 +19,9 @@
                     <a href="contact.html">Contact Us</a>
                 </li>
                 <li>
+                    <a href="register.html">Register</a>
+                </li>
+                <li>
                     <a href="login.html">Login</a>
                 </li>
             </ul>
@@ -26,31 +30,22 @@
     <form class="card" id="register-form">
         <h1>Register</h1>
         <p>Fill in your details to create an account.</p>
-
         <div>
             <label for="username" aria-label="Select Username">Username</label>
             <input type="text" id="username" name="username" placeholder="Desired username" required>
         </div>
-        
         <div>
-            <label for="email" aria-label="Enter your email">Your email address</label>
+            <label for="email" aria-label="Enter your email">Email address</label>
             <input type="email" id="email" name="email" placeholder="Enter Email" required>
         </div>   
-
         <div> 
             <label for="password" aria-label="Enter Password">Password</label>
             <input type="password" id="password" name="password" placeholder="Enter Password" required>
         </div>
-        <!-- <div>
-            <label for="password-repeat" aria-label="Confirm Password">Confirm Password</label>
-            <input type="password" id="password-repeat" name="password-repeat" placeholder="Confirm Password" required>
-        </div> -->
-
         <div>
             <input type="submit" aria-label="Submit form" value="Register">
             <input type="reset" aria-label="Reset form" value="Reset Form">
         </div>
-
     </form>
     
     <script src="assets/js/userLogic.js"></script>
