@@ -116,6 +116,7 @@ Starts a game round
 function startRound() {
   let chosenSound = playSound();
   showImages(chosenSound);
+  playButton.disabled = true
 }
 
 /*
@@ -150,6 +151,8 @@ function registerAnswer(e) {
   } else {
     gameBoard.style.backgroundColor = '#CD3C57';
   }
+  playButton.disabled = false
+  hideTooltip()
   setTimeout(resetColor, 1000);
   calculateProgressWidth();
 }
