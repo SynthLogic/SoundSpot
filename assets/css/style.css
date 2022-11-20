@@ -132,6 +132,10 @@ li  {
   justify-content: center;
 }
 
+#play-game:hover {
+  transform: scale(1.1);
+}
+
 .home-play {
   width: 200px;
   height: 100px;
@@ -280,7 +284,6 @@ li  {
   margin-bottom: 10px;
 }
 
-
 .card input[type="text"] {
   padding: 5px;
   border-radius:10px;
@@ -310,6 +313,12 @@ li  {
   text-transform: uppercase;
 } 
 
+.card input[type="submit"]:hover {
+  background-color:  rgb(255 240 228);
+  color: #39304A;
+  font-weight: bold;
+}
+
 .card input[type="reset"] {
   cursor: pointer;
   margin-top: 10px;
@@ -317,6 +326,12 @@ li  {
     border-radius: 10px;
     border: 2px solid #39304A;
     color: #39304A;
+}
+
+.card input[type="reset"]:hover {
+  color: rgb(255 240 228);
+  background-color: #483b61;
+  font-weight: bold;
 }
 
 label {
