@@ -26,13 +26,11 @@ calculateProgressWidth();
 /*
 Add click listener to all the buttons
 */
-playButton.addEventListener('click', startRound);
+playButton.addEventListener('click', startRound, false);
 
-imageButtons.forEach(b => b.addEventListener('click', registerAnswer));
+resetButton.addEventListener('click', resetGame, false)
 
-
-
-
+imageButtons.forEach(b => b.addEventListener('click', registerAnswer, false));
 
 /*
 IIFE for getting all necessary data from the database
@@ -51,7 +49,10 @@ IIFE for getting all necessary data from the database
         imageOptions.push(file);
       }
   });
-}).then(playButton.disabled = false);
+}).then( () => { 
+  playButton.disabled = false
+  sessionStorage.setItem('sounds', JSON.stringify(soundsToPlay));
+});
 
 /*
 Plays a random audio file from the list
@@ -111,6 +112,24 @@ function startRound() {
 }
 
 /*
+Resets a game round
+*/
+function resetGame() {
+  audioContext.pause();
+  audioContext.currentTime = 0;
+  let images = [...imageButtons];
+  images.forEach(img => img.innerHTML = '');
+  resetScore();
+  if ('sounds' in sessionStorage) {
+    soundsToPlay = [...JSON.parse(sessionStorage.getItem('sounds'))];
+    calculateProgressWidth();
+  } else {
+    location.reload();
+  }
+  alert('Please start again');
+}
+
+/*
 Check if answer is correct
 */
 function registerAnswer(e) {
@@ -159,13 +178,17 @@ const closeModal = () => {
 
 }
 
-
 /*
 Increment score by 1
 */
 function increaseScore() {
   score += 10;
   scoreBoard.innerText = score;
+}
+
+function resetScore() {
+  score = 0;
+  scoreBoard.innerText = 0;
 }
 
 /*
