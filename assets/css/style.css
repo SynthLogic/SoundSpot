@@ -121,8 +121,6 @@ li  {
   margin: 10px 0;
 }
 
-
-
 .modal {
   display: none;
   position: fixed;
@@ -280,6 +278,22 @@ label {
   padding: 5px;
 }
 
+@-webkit-keyframes wiggle {
+  0% {transform: scale(1);}
+  25% {transform: scale(.9);}
+  50% {transform: scale(.8);}
+  75% {transform: scale(.9);}
+  100% {transform: scale(1);}
+}
+
+@keyframes wiggle {
+  0% {transform: scale(1);}
+  25% {transform: scale(.9);}
+  50% {transform: scale(.8);}
+  75% {transform: scale(.9);}
+  100% {transform: scale(1);}
+}
+
 @media only screen and (max-width: 500px) {
   #home-box h1 {
     font-size: 24px;
@@ -378,6 +392,11 @@ label {
   background-color: #EEB66D;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.play-reset:active {
+  -webkit-animation: wiggle .25s;
+          animation: wiggle .25s;
 }
 
 #modal {
