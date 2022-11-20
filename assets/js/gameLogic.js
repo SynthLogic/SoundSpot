@@ -177,8 +177,7 @@ const showModal = () => {
     document.getElementById('final-score').innerHTML=scoreBoard.innerHTML;
     if ('user' in sessionStorage) { 
       const user = JSON.parse(sessionStorage.getItem('user')); 
-      document.getElementById('username').innerText=user.username
-    }
+      document.getElementById('username').innerText=user.username}
     closeButton.addEventListener('click', closeModal);
 }
 /*
