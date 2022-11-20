@@ -1,3 +1,7 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Recursive&display=swap');
+</style>
+
 --root {
   --english-violet: #39304A;
   --earth-yellow: #EEB66D;
@@ -19,6 +23,8 @@ html {
 
 body {
   background: #39304A;
+  font-family: 'Recursive', sans-serif;
+  font-weight: bold;
   color: #39304A;
 }
 
@@ -27,7 +33,7 @@ header {
   height: 10%;
   margin-bottom: 25px;
   background-color: #EEB66D;
-  opacity: 0.8;
+  opacity: 0.9;
   
   z-index: 1;
   display: flex;
@@ -44,7 +50,7 @@ header {
 }
 
 #nav {
-  margin-right: 10px;
+  margin-right: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -56,6 +62,7 @@ header {
 }
 
 a {
+  color: #39304A;
   text-decoration: none;
 }
 
@@ -83,13 +90,16 @@ li  {
 }
 
 #rules {
+  width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
+  margin: auto;
   padding: 10px;
-  text-align: center;
+  border: 2px dotted #39304A;
+  border-radius: 10px;
 }
+
 
 #rules * {
   text-transform: uppercase;
@@ -110,10 +120,14 @@ li  {
   width: 300px;
   height: 150px;
   margin: 25px 10px 25px 10px;
-  padding: 5px;
-  box-shadow:10px 10px 10px #39304A;
+  padding: 10px;
+  border:solid 7.5px hsla(261, 21%, 24%, 1);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; 
+  box-shadow:5px 5px 50px #39304a, -5px -5px 50px rgb(255 240 228);
   font-weight: bold;
-  
+  text-transform: uppercase;
+  font-size: 32px;
+  color: #39304a;
 }
 
 #rules ul {
@@ -303,11 +317,21 @@ label {
     font-size: 20px;
   }
 
+  #rules li {
+    font-size: 14px;
+  }
+
   #small-title {
     font-size: 28px;
   }
   .card {
     width: 80%;
+  }
+
+  .home-play {
+    width: 250px;
+    height: 125px;
+    font-size: 28px;
   }
 
 }
