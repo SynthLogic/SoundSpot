@@ -173,14 +173,20 @@ Shows Model with final score
 const showModal = () => {
   modal.classList.remove('hide');
   gameBoard.classList.add('hide');
-    document.getElementById('final-score').innerHTML=scoreBoard.innerHTML;
+    document.getElementById('final-score').innerHTML = scoreBoard.innerHTML;
     if ('user' in sessionStorage) { 
-      const user = JSON.parse(sessionStorage.getItem('user')); 
-      document.getElementById('username').innerText=user.username
+      let user = JSON.parse(sessionStorage.getItem('user')); 
+      document.getElementById('username').innerText = user.username;
+      if (score > user.highestScore) {
+        user.highestScore = score;
+      }
+      user.latestScore = score;
+      sessionStorage.setItem('user', JSON.stringify(user));
+      saveScore(user.email, user.username, user.highestScore, score);
     }
-
     closeButton.addEventListener('click', closeModal);
 }
+
 /*
 Close modeland instead show the game and reset the score
 */
@@ -200,6 +206,9 @@ function increaseScore() {
   scoreBoard.innerText = score;
 }
 
+/*
+Reset score to 0
+*/
 function resetScore() {
   score = 0;
   scoreBoard.innerText = 0;
@@ -227,6 +236,24 @@ function showTooltip(e) {
 
 function hideTooltip() {
   toolTip.style.display = 'none';
+}
+
+async function saveScore(email, username, highestScore, latestScore) {
+  let apiUrl = `https://soundspotgame.herokuapp.com/api/user/update/${email}/${username}/`;
+  const response = await fetch(apiUrl, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(
+      { 
+        highestScore: highestScore,
+        latestScore: latestScore
+      })
+  });
+  if (response.status != 200) {
+    alert('There was an error saving your score in the database');
+  }
 }
 
 /* if logged in the navbar change */
