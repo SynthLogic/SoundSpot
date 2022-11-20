@@ -236,10 +236,9 @@ label {
 }
 
 .img-option {
+  cursor: pointer;
   width: 25%;
   height: auto;
-  float: right;
-  margin-top: 10%;
 }
 
 .img-option:hover {
@@ -273,7 +272,8 @@ label {
 #play-reset {
   width: 100%;
   display: grid;
-  place-content: center center;
+  grid-auto-flow: column;
+  justify-content: space-around;
 }
 
 .play-reset {
