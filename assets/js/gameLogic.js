@@ -2,6 +2,7 @@
 Get HTML elements
 */
 const playButton = document.querySelector('#play-button');
+const resetButton = document.querySelector('#reset-button');
 const submitButton = document.querySelector('#submit-button');
 const scoreBoard = document.querySelector('#scoreboard');
 const gameBoard = document.querySelector('#gameboard');
@@ -179,3 +180,34 @@ function calculateProgressWidth() {
   }
   root.style.setProperty('--width', progressBarWidth + "%");
 }
+
+// window.onload is optional since it depends on the way in which you fire events
+window.onload=function(){
+
+  // selecting the elements for which we want to add a tooltip
+
+  const tooltipPlay = document.getElementById("tooltip-play");
+  
+  // change display to 'block' on mouseover
+  playButton.addEventListener('mouseover', () => {
+    tooltipPlay.style.display = 'block';
+  }, false);
+  
+  // change display to 'none' on mouseleave
+  playButton.addEventListener('mouseleave', () => {
+    tooltipPlay.style.display = 'none';
+  }, false);
+
+  const tooltipReset = document.getElementById("tooltip-reset");
+  
+  // change display to 'block' on mouseover
+  resetButton.addEventListener('mouseover', () => {
+    tooltipReset.style.display = 'block';
+  }, false);
+  
+  // change display to 'none' on mouseleave
+  resetButton.addEventListener('mouseleave', () => {
+    tooltipReset.style.display = 'none';
+  }, false);
+  
+  }
