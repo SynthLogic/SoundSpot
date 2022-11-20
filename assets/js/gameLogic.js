@@ -179,7 +179,6 @@ const showModal = () => {
       const user = JSON.parse(sessionStorage.getItem('user')); 
       document.getElementById('username').innerText=user.username
     }
-
     closeButton.addEventListener('click', closeModal);
 }
 /*
