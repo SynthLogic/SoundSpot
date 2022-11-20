@@ -248,10 +248,12 @@ if ('user' in sessionStorage) {
         <a href="index.html" id="logout">Logout</a>
     </li>
     `;
+
     const logout = document.querySelector('#logout');
 
     logout.addEventListener('click', function() {
         sessionStorage.removeItem('user');
+        alert('You have successfully logged out');
         nav.innerHTML = `
         <li>
             <a href="index.html">Home Page</a>
