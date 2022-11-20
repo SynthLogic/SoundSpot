@@ -9,7 +9,7 @@ if ('user' in sessionStorage) {
         <a href="contact.html">Contact Us</a>
     </li>
     <li>
-        <a id="logout">Logout</a>
+        <a href="index.html" id="logout">Logout</a>
     </li>
     `;
     const logout = document.querySelector('#logout');
