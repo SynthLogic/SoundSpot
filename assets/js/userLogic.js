@@ -33,13 +33,13 @@ async function postRequest(e) {
     body: formData
   });
   if (response.status == 200 && isLogin) {
-    alert('You have successfully logged in.');
+    swal('You have successfully logged in.');
     window.location.href = '../../index.html';
     const data = await response.json();
     sessionStorage.setItem('user', JSON.stringify(data));
   }
   if (response.status == 200 && isRegister) {
-    alert('You have successfully registered. Please login.');
+    swal('You have successfully registered. Please login.');
     window.location.href = '../../login.html';
   }
 }
@@ -52,7 +52,7 @@ async function patchRequest(e) {
   const password = formData.get('password');
   const repeatPassword = formData.get('password-repeat');
   if (password !== repeatPassword) {
-    alert('Passwords do not match');
+    swal('Passwords do not match');
     return;
   }
   let apiUrl =`https://soundspotgame.herokuapp.com/api/user/update/${email}/${username}/`;
@@ -64,6 +64,6 @@ async function patchRequest(e) {
     body: JSON.stringify({ password: password })
   });
   if (response.status == 200) {
-    alert('You have successfully updated your password');
+    swal('You have successfully updated your password');
   }
 }
