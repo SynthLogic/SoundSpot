@@ -16,7 +16,6 @@ function hideContact(){
 /** Email.JS code */
 
 window.onload = function(){
-    console.log('function called')
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
         btn.value = 'Sending...';
@@ -27,8 +26,10 @@ window.onload = function(){
         emailjs.sendForm(serviceID, templateID, form, 'kKSvuHp7VpOd5maBA')
             .then(function() {
                 console.log('SUCCESS!');
+                swal('Thank you for your email!')
             }, function(error) {
                 console.log('FAILED...', error);
+                swal('Sorry, your email could not be sent')
             });
     });
 }
