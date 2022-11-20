@@ -6,6 +6,8 @@ const submitButton = document.querySelector('#submit-button');
 const scoreBoard = document.querySelector('#scoreboard');
 const gameBoard = document.querySelector('#gameboard');
 const imageButtons = Array.from(document.getElementsByClassName('img-option'));
+const closeButton = document.getElementById('close-modal')
+const modal = document.getElementById('modal');
 const root = document.documentElement;
 
 /*
@@ -26,6 +28,10 @@ Add click listener to all the buttons
 playButton.addEventListener('click', startRound);
 
 imageButtons.forEach(b => b.addEventListener('click', registerAnswer));
+
+
+
+
 
 /*
 IIFE for getting all necessary data from the database
@@ -128,9 +134,27 @@ Reset background colour of game board
 const resetColor = () => {
   gameBoard.style.backgroundColor = '#EEB66D';
   if (soundsToPlay.length == 0) {
-    alert('The game has ended');
+    showModal()
   };
 }
+
+/*
+Shows Model with final score
+*/
+const showModal = () => {
+  modal.classList.remove('hide')
+  gameBoard.classList.add('hide')
+    document.getElementById('final-score').innerHTML=scoreBoard.innerHTML
+    closeButton.addEventListener('click', closeModal);
+}
+/*
+Close model with the button
+*/
+const closeModal = () => {
+  modal.classList.add('hide')
+  gameBoard.classList.remove('hide')
+}
+
 
 /*
 Increment score by 1

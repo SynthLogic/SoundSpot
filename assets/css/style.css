@@ -379,3 +379,41 @@ label {
   border-radius: 50%;
   cursor: pointer;
 }
+
+#modal {
+  width:40%;
+  margin-left: 30%;
+  margin-bottom: 10px;
+  height:150px;
+  background-color: #EEB66D;
+  color: #39304A;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+#modal p {
+  text-align: center;
+  line-height: 150px;
+  font-size: 180%;
+}
+
+#close-modal {
+  color: #39304A;
+  float: right;
+  font-size: 280%;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  border-color: #39304A;
+  background:none;
+}
+
+#close-modal:hover {
+  color: #EEB66D;
+  background:#39304A;
+}
+
+.hide {
+  display:none;
+}
