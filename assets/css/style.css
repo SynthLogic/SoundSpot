@@ -156,18 +156,26 @@ li  {
 }
 
 /*Contact page*/
+#contact-title{
+  color:white;
+  margin-bottom: 5px;
+}
 .contact-card{
   border: 2px solid #EEB66D;
   background-color: rgba(238, 182, 109, 0.716);
   border-radius: 5%;
-  max-width: 80%;
-  margin: auto;
+  width: 350px;
+  height: 450px;
+  margin: 1rem 2rem 1rem 5rem;
   color: aliceblue;
   text-align: center;
   text-decoration: none;
+  display: inline-block;
 }
 .id-picture{
   max-width: 80%;
+  max-height: 80%;
+  padding: 5px;
 }
 #linkedin, #github{
   color:inherit;
