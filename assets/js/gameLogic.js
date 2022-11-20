@@ -4,7 +4,9 @@ Get HTML elements
 const playButton = document.querySelector('#play-button');
 const submitButton = document.querySelector('#submit-button');
 const scoreBoard = document.querySelector('#scoreboard');
+const gameBoard = document.querySelector('#gameboard');
 const imageButtons = Array.from(document.getElementsByClassName('img-option'));
+const root = document.documentElement;
 
 /*
 Global variables
@@ -16,6 +18,7 @@ let score = 0;
 let isCorrect = '';
 
 scoreBoard.innerText = score;
+calculateProgressWidth();
 
 /*
 Add click listener to all the buttons
@@ -87,8 +90,8 @@ function convertbase64Image(element, file, correct) {
   let imageContext = new Image();
   imageContext.src = (`data:${file.contentType};base64,${file.content}`);
   imageContext.dataset.correct = correct
-  imageContext.width = 100;
-  imageContext.height = 100;
+  imageContext.width = 128;
+  imageContext.height = 128;
   element.appendChild(imageContext);
 }
 
@@ -111,17 +114,22 @@ function registerAnswer(e) {
   images.forEach(img => img.innerHTML = '');
   if (isCorrect == 'true') {
     increaseScore();
-    document.getElementById('gameboard').style.backgroundColor='green';
+    gameBoard.style.backgroundColor = 'green';
   } else {
-    document.getElementById('gameboard').style.backgroundColor='red';
+    gameBoard.style.backgroundColor = 'red';
   }
-  const normalColor = () => {
-    document.getElementById('gameboard').style.backgroundColor='#EEB66D';
-    if (soundsToPlay.length == 0) {
-      alert('The game has ended');
-    };
-  }
-  setTimeout(normalColor, 1000);
+  setTimeout(resetColor, 1000);
+  calculateProgressWidth();
+}
+
+/*
+Reset background colour of game board
+*/
+const resetColor = () => {
+  gameBoard.style.backgroundColor = '#EEB66D';
+  if (soundsToPlay.length == 0) {
+    alert('The game has ended');
+  };
 }
 
 /*
@@ -130,4 +138,17 @@ Increment score by 1
 function increaseScore() {
   score += 10;
   scoreBoard.innerText = score;
+}
+
+/*
+Calculate progress bar
+*/
+function calculateProgressWidth() {
+  let progressBarWidth;
+  if (soundsToPlay.length == 0) {
+    progressBarWidth = (soundsToPlay.length / 10) * 100;
+  } else {
+    progressBarWidth = 100 - (soundsToPlay.length / 10) * 100;
+  }
+  root.style.setProperty('--width', progressBarWidth + "%");
 }
