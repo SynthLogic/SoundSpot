@@ -12,22 +12,23 @@
 </head>
 <header>
     <h2 id="small-title">Sound Spot</h2>
-        <ul id="nav">
-            <li>
-                <a href="index.html">Home Page</a>
-            </li>
-            <li>
-                <a href="contact.html">Contact Us</a>
-            </li>
-            <li>
-                <a href="register.html">Register</a>
-            </li>
-            <li>
-                <a href="login.html">Login</a>
-            </li>
-        </ul>
+    <ul id="nav">
+        <li>
+            <a href="index.html">Home Page</a>
+        </li>
+        <li>
+            <a href="contact.html">Contact Us</a>
+        </li>
+        <li>
+            <a href="register.html">Register</a>
+        </li>
+        <li>
+            <a href="login.html">Login</a>
+        </li>
+    </ul>
 </header>
 <section>
+
     <body>
         <h1 id="contact-title">Meet the Team:</h1>
         <!--Sample contact card-->
@@ -40,8 +41,10 @@
             </h3>
             <div>
                 <!--Links-->
-                <a href="https://github.com/EmanuelGustafzon" id="github"><i class="fa-brands fa-square-github"></i></a>
-                <a href="https://www.linkedin.com/in/emanuel-gustafzon-software-developer/" id="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/EmanuelGustafzon" target="_blank" id="github"><i
+                        class="fa-brands fa-square-github"></i></a>
+                <a href="https://www.linkedin.com/in/emanuel-gustafzon-software-developer/" target="_blank"
+                    id="linkedin"><i class="fa-brands fa-linkedin"></i></a>
             </div>
             <p>
                 <!--Bio-->
@@ -56,8 +59,10 @@
             </h3>
             <div>
                 <!--Links-->
-                <a href="https://github.com/alcl2000" id="github"><i class="fa-brands fa-square-github"></i></a>
-                <a href="https://www.linkedin.com/in/amy-lewis-a6193419a/" id="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/alcl2000" target="_blank" id="github"><i
+                        class="fa-brands fa-square-github"></i></a>
+                <a href="https://www.linkedin.com/in/amy-lewis-a6193419a/" target="_blank" id="linkedin"><i
+                        class="fa-brands fa-linkedin"></i></a>
             </div>
             <p>
                 CI Student | London
@@ -71,11 +76,13 @@
             </h3>
             <div>
                 <!--Links-->
-                <a href="https://github.com/noemichis" id="github"><i class="fa-brands fa-square-github"></i></a>
-                <a href="https://www.linkedin.com/in/noemi-chis-hunyadi-b8a31b211/" id="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/noemichis" target="_blank" id="github"><i
+                        class="fa-brands fa-square-github"></i></a>
+                <a href="https://www.linkedin.com/in/noemi-chis-hunyadi-b8a31b211/" target="_blank" id="linkedin"><i
+                        class="fa-brands fa-linkedin"></i></a>
             </div>
             <p>
-                CI Student | Sligo 
+                CI Student | Sligo
             </p>
         </div>
         <div class="contact-card">
@@ -86,11 +93,13 @@
             </h3>
             <div>
                 <!--Links-->
-                <a href="https://github.com/MikeAvgeros" id="github"><i class="fa-brands fa-square-github"></i></a>
-                <a href="https://www.linkedin.com/in/avgeros" id="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/MikeAvgeros" target="_blank" id="github"><i
+                        class="fa-brands fa-square-github"></i></a>
+                <a href="https://www.linkedin.com/in/avgeros" target="_blank" id="linkedin"><i
+                        class="fa-brands fa-linkedin"></i></a>
             </div>
             <p>
-                CI Alumni | London 
+                CI Alumni | London
             </p>
         </div>
         <div class="contact-card">
@@ -101,41 +110,43 @@
             </h3>
             <div>
                 <!--Links-->
-                <a href="https://github.com/GNikroo" id="github"><i class="fa-brands fa-square-github"></i></a>
-                <a href="https://www.linkedin.com/in/gina-nikroo/" id="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/GNikroo" target="_blank" id="github"><i
+                        class="fa-brands fa-square-github"></i></a>
+                <a href="https://www.linkedin.com/in/gina-nikroo/" target="_blank" id="linkedin"><i
+                        class="fa-brands fa-linkedin"></i></a>
             </div>
             <p>
                 CI Student | Sweden
             </p>
         </div>
+</section>
+<!--Email.JS pop-up section-->
+<section>
+    <!--Placeholder text-->
+    <h3>Need help? send us an email here:</h3>
+    <button id="open" onclick="hideContact()">Contact Us</button>
+    <section id="contact-form">
+        <form id="email-form">
+            <input type="hidden" id="contact_number" name="contact_number">
+            <label>Name:</label>
+            <input type="text" name="user_name" placeholder="JohnDoe">
+            <label>Email:</label>
+            <input type="email" name="user_email" placeholder="john.doe@gmail.com">
+            <label>Message:</label>
+            <textarea name="message"></textarea>
+            <input id='submit' type="submit" value="Send" placeholder="Your message here">
+        </form>
     </section>
-    <!--Email.JS pop-up section-->
-    <section>
-        <!--Placeholder text-->
-        <h3>Need help? send us an email here:</h3>
-        <button id="open" onclick="hideContact()">Contact Us</button>
-        <section id="contact-form">
-            <form id="email-form">
-                <input type="hidden" id="contact_number" name="contact_number">
-                <label>Name:</label>
-                <input type="text" name="user_name" placeholder="JohnDoe">
-                <label>Email:</label>
-                <input type="email" name="user_email" placeholder="john.doe@gmail.com">
-                <label>Message:</label>
-                <textarea name="message"></textarea>
-                <input id='submit' type="submit" value="Send" placeholder="Your message here">
-            </form>
-        </section>
-    </section>
-    <script src="https://kit.fontawesome.com/927c583c72.js" crossorigin="anonymous"></script>
-    <script src="assets/js/contact.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script type="text/javascript">
-        function initEmail(){
+</section>
+<script src="https://kit.fontawesome.com/927c583c72.js" crossorigin="anonymous"></script>
+<script src="assets/js/contact.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script type="text/javascript">
+    function initEmail() {
         emailjs.init("kKSvuHp7VpOd5maBA");
     }
-    </script>
+</script>
 </body>
 
 </html>
