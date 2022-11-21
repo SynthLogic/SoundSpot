@@ -25,10 +25,8 @@ window.onload = function(){
         // these IDs from the previous steps
         emailjs.sendForm(serviceID, templateID, form, 'kKSvuHp7VpOd5maBA')
             .then(function() {
-                console.log('SUCCESS!');
                 swal('Thank you for your email!')
             }, function(error) {
-                console.log('FAILED...', error);
                 swal('Sorry, your email could not be sent')
             });
     });
