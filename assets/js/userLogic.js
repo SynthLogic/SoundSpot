@@ -42,6 +42,12 @@ async function postRequest(e) {
     alert('You have successfully registered. Please login.');
     window.location.href = '../../login.html';
   }
+  if (response.status != 200 && isRegister) {
+    swal('Oops! Something went wrong. Please try again.');
+  }
+  if (response.status != 200 && isLogin) {
+    swal('Your email or password are incorrect.');
+  }
 }
 
 async function patchRequest(e) {
@@ -65,5 +71,7 @@ async function patchRequest(e) {
   });
   if (response.status == 200) {
     swal('You have successfully updated your password');
+  } else {
+    swal('Oops! Something went wrong. Please try again.');
   }
 }
