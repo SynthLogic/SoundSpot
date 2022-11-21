@@ -1,6 +1,6 @@
 # Sound Spot
 
-### Match the sound clip to the correct instrument.
+### <p align="center">Listen and match the sounds to the instruments. Put your ears to the test and see if you have what it takes!</p>
 
 ![start game screenshot](assets/images/Readme/start-game.png)
 
@@ -12,6 +12,7 @@
   - [Deployment](#deployment)
   - [Technologies](#technologies)
 - [Wireframes](#wireframes)
+- [Website](#website)
 
   - [Game page](#game-page)
   - [Register page](#register-page)
@@ -45,7 +46,7 @@ The database is MongoDB. The backend framework is ASP.NET Core and the language 
 
 ![wireframe](assets/images/Readme/wireframe.png)
 
-## Surface
+## Website
 
 ### Game page
 
