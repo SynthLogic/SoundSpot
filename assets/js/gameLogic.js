@@ -258,7 +258,7 @@ async function saveScore(email, username, highestScore, latestScore) {
       })
   });
   if (response.status != 200) {
-    alert('There was an error saving your score in the database');
+    swal('There was an error saving your score in the database');
   }
 }
 
