@@ -34,13 +34,13 @@ async function postRequest(e) {
   });
   if (response.status == 200 && isLogin) {
     alert('You have successfully logged in.');
-    window.location.href = '../../index.html';
+    window.location.assign('https://synthlogic.github.io/SoundSpot/index.html');
     const data = await response.json();
     sessionStorage.setItem('user', JSON.stringify(data));
   }
   if (response.status == 200 && isRegister) {
     alert('You have successfully registered. Please login.');
-    window.location.href = '../../login.html';
+    window.location.assign('https://synthlogic.github.io/SoundSpot/login.html');
   }
   if (response.status != 200 && isRegister) {
     swal('Oops! Something went wrong. Please try again.');
