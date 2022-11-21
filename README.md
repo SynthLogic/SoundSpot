@@ -44,7 +44,12 @@ The database is MongoDB. The backend framework is ASP.NET Core and the language 
 
 ## Wireframes
 
-![wireframe](assets/images/Readme/wireframe.png)
+![Startpage](assets/images/Readme/wireframe-start.png)
+![Gameplay](assets/images/Readme/wireframe-gameplay.png)
+![Score](assets/images/Readme/wireframe-score.png)
+![Register](assets/images/Readme/wireframe-register.png)
+![Login](assets/images/Readme/wireframe-login.png)
+![Reset Password](assets/images/Readme/wireframe-reset.png)
 
 ## Website
 
