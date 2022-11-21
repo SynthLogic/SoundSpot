@@ -11,6 +11,9 @@ const imageButtons = Array.from(document.getElementsByClassName('img-option'));
 const closeButton = document.getElementById('close-modal')
 const modal = document.getElementById('modal');
 const root = document.documentElement;
+const correct = new Audio('./assets/audio/Correct.wav');
+const wrong = new Audio('./assets/audio/Wrong.wav');
+const gameOver = new Audio('./assets/audio/GameOver.wav');
 
 /*
 Global variables
@@ -116,6 +119,7 @@ Starts a game round
 function startRound() {
   let chosenSound = playSound();
   showImages(chosenSound);
+  playButton.disabled = true
 }
 
 /*
@@ -145,11 +149,14 @@ function registerAnswer(e) {
   let images = [...imageButtons];
   images.forEach(img => img.innerHTML = '');
   if (isCorrect == 'true') {
+    correct.play();
     increaseScore();
     gameBoard.style.backgroundColor = '#A5BA8C';
   } else {
+    wrong.play();
     gameBoard.style.backgroundColor = '#CD3C57';
   }
+  hideTooltip();
   setTimeout(resetColor, 1000);
   calculateProgressWidth();
 }
@@ -160,8 +167,10 @@ Reset background colour of game board
 const resetColor = () => {
   gameBoard.style.backgroundColor = '#EEB66D';
   if (soundsToPlay.length == 0) {
+    gameOver.play();
     showModal();
   };
+  playButton.disabled = false;
 }
 
 /*
@@ -170,9 +179,20 @@ Shows Model with final score
 const showModal = () => {
   modal.classList.remove('hide');
   gameBoard.classList.add('hide');
-    document.getElementById('final-score').innerHTML=scoreBoard.innerHTML;
+    document.getElementById('final-score').innerHTML = scoreBoard.innerHTML;
+    if ('user' in sessionStorage) { 
+      let user = JSON.parse(sessionStorage.getItem('user')); 
+      document.getElementById('username').innerText = user.username;
+      if (score > user.highestScore) {
+        user.highestScore = score;
+      }
+      user.latestScore = score;
+      sessionStorage.setItem('user', JSON.stringify(user));
+      saveScore(user.email, user.username, user.highestScore, score);
+    }
     closeButton.addEventListener('click', closeModal);
 }
+
 /*
 Close modeland instead show the game and reset the score
 */
@@ -181,6 +201,7 @@ const closeModal = () => {
   scoreBoard.innerText = score;
   modal.classList.add('hide');
   gameBoard.classList.remove('hide');
+  resetGame()
 }
 
 /*
@@ -191,6 +212,9 @@ function increaseScore() {
   scoreBoard.innerText = score;
 }
 
+/*
+Reset score to 0
+*/
 function resetScore() {
   score = 0;
   scoreBoard.innerText = 0;
@@ -218,4 +242,64 @@ function showTooltip(e) {
 
 function hideTooltip() {
   toolTip.style.display = 'none';
+}
+
+async function saveScore(email, username, highestScore, latestScore) {
+  let apiUrl = `https://soundspotgame.herokuapp.com/api/user/update/${email}/${username}/`;
+  const response = await fetch(apiUrl, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(
+      { 
+        highestScore: highestScore,
+        latestScore: latestScore
+      })
+  });
+  if (response.status != 200) {
+    swal('There was an error saving your score in the database');
+  }
+}
+
+/* if logged in the navbar change */
+
+const nav = document.querySelector('#nav');
+
+if ('user' in sessionStorage) {
+    nav.innerHTML = `
+    <li>
+        <a href="index.html">Home Page</a>
+    </li>
+    <li>
+        <a href="contact.html">Contact Us</a>
+    </li>
+    <li>
+        <a href="profile.html">Profile</a>
+    </li>
+    <li>
+        <a href="index.html" id="logout">Logout</a>
+    </li>
+    `;
+
+    const logout = document.querySelector('#logout');
+
+    logout.addEventListener('click', function() {
+        sessionStorage.removeItem('user');
+        alert('You have successfully logged out');
+        nav.innerHTML = `
+        <li>
+            <a href="index.html">Home Page</a>
+        </li>
+        <li>
+            <a href="contact.html">Contact Us</a>
+        </li>
+        <li>
+            <a href="register.html">Register</a>
+        </li>
+        <li>
+            <a href="login.html">Login</a>
+        </li>
+        `
+    });
 }

@@ -17,6 +17,12 @@ html {
 
 #background-img {
   background: rgba(57,48,74, 0.9) url('../images/home-background.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+#profile-background {
+  background: rgba(57,48,74, 0.9) url('../images/profile-background1.jpg') no-repeat center center;
+  background-size: cover;
 }
 
 body {
@@ -61,8 +67,14 @@ header {
 }
 
 a {
+  cursor: pointer;
   color: #39304A;
   text-decoration: none;
+}
+
+a:hover {
+  color: #745b84 ;
+  transform: scale(1.1);
 }
 
 li  {
@@ -72,12 +84,12 @@ li  {
 
 /* home page */
 #home-box {
-
   width: 80%;
   height: 600px;
   margin: auto;
   padding: 25px;
   background-color: rgba(238, 182, 109, 0.9);
+  border-radius: 10px;
 }
 
 #home-box h1 { 
@@ -86,6 +98,10 @@ li  {
   margin: 20px 0;
   font-size: 30px;
   text-transform: uppercase;
+}
+
+#start-game {
+  cursor: pointer;
 }
 
 #rules {
@@ -98,7 +114,6 @@ li  {
   border: 2px dotted #39304A;
   border-radius: 10px;
 }
-
 
 #rules * {
   text-transform: uppercase;
@@ -115,7 +130,7 @@ li  {
   justify-content: center;
 }
 
-.home-play {
+.home-play, #open {
   width: 200px;
   height: 100px;
   margin: 25px 10px 25px 10px;
@@ -156,9 +171,22 @@ li  {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-.error {
-  max-width: 500px;
+.error-container {
+  background-color: #EEB66D;
   margin: auto;
+  color: #39304A;
+  width: 80%;
+  min-height: 540px;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.error {
+  display: grid;
+  min-height: 540px;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 10px;
 }
 
 .error-heading {
@@ -208,17 +236,17 @@ li  {
 .contact-card>p{
   margin-bottom: 5px;
 }
-.open{
-  background-color: var(--english-violet);
-  color:inherit;
-  padding: 3px;
+#open{
+  margin:10% 40% 5%;
 }
 #contact-form{
   background-color: #EEB66D;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 #contact-form input{
-  margin: auto;
+  margin: 2.5px;
   padding: 3px;
   display: block;
 }
@@ -228,7 +256,7 @@ li  {
 }
 #contact-form input[type='submit']{
   background-color: #39304A;
-  color:inherit;
+  color:white;
   padding: 3px 5px;
   border-radius: 20%;
 }
@@ -283,6 +311,7 @@ li  {
 }
 
 .card input[type="submit"] {
+  cursor: pointer;
   width: 100%;
   margin-top: 25px;
   padding: 10px;
@@ -292,12 +321,25 @@ li  {
   text-transform: uppercase;
 } 
 
+.card input[type="submit"]:hover {
+  background-color:  rgb(255 240 228);
+  color: #39304A;
+  font-weight: bold;
+}
+
 .card input[type="reset"] {
+  cursor: pointer;
   margin-top: 10px;
     padding: 5px;
     border-radius: 10px;
     border: 2px solid #39304A;
     color: #39304A;
+}
+
+.card input[type="reset"]:hover {
+  color: rgb(255 240 228);
+  background-color: #483b61;
+  font-weight: bold;
 }
 
 label {
@@ -313,6 +355,33 @@ label {
   text-decoration: none;
   padding: 5px;
 }
+
+/* profile page */
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color:rgba(238, 182, 109, 0.9);
+}
+
+.center > div,
+.center > form {
+  padding: 5px;
+}
+
+#profile-photo {
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-img {
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
+}
+
 
 @-webkit-keyframes wiggle {
   0% {transform: scale(1);}
@@ -360,11 +429,12 @@ label {
 
 /* game */
 
+
 #gameboard {
   background-color: #EEB66D;
   margin: auto;
   color: #39304A;
-  width: 60%;
+  width: 80%;
   min-height: 540px;
   padding: 16px;
   border-radius: 10px;
@@ -449,7 +519,7 @@ label {
   width:40%;
   margin-left: 30%;
   margin-bottom: 10px;
-  height:150px;
+  height:auto;
   background-color: #EEB66D;
   color: #39304A;
   border-radius: 10px;
@@ -459,7 +529,7 @@ label {
 #modal p {
   text-align: center;
   line-height: 150px;
-  font-size: 180%;
+  font-size: 120%;
 }
 
 #close-modal {
@@ -517,6 +587,14 @@ from {
 to {
  opacity: 1;
 }
+}
+
+#user-info {
+  text-align: start;
+}
+
+#user-info div {
+  margin-bottom: 16px;
 }
 
 
