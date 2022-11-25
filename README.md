@@ -40,7 +40,7 @@ Sound Spot was deployed to heroku.
 
 ### Technologies
 
-The [database](https://soundspotgame.herokuapp.com/swagger/index.html) is MongoDB. The backend framework is ASP.NET Core and the language is C#.
+The [database](https://soundspot-backend.herokuapp.com/swagger/index.html) is MongoDB. The backend framework is ASP.NET Core and the language is C#.
 
 ## Wireframes
 
