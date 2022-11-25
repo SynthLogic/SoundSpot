@@ -44,22 +44,22 @@ imageButtons.forEach(b => {
 IIFE for getting all necessary data from the database
 */
 (async function getData() {
-  const apiUrl = 'https://soundspotgame.herokuapp.com/api/file/getall/';
+  const apiUrl = 'https://soundspot-backend.herokuapp.com/api/file/getall/';
   const response = await fetch(apiUrl);
   const result = await response.json();
   return result;
 })().then(files => {
   files.forEach(file => {
-      if (file.contentType == 'audio/mpeg' ) {
+      if (file.contentType === 'audio/mpeg') {
         soundsToPlay.push(file);
       }
-      if (file.contentType == 'image/png') {
+      if (file.contentType === 'image/png') {
         imageOptions.push(file);
       }
   });
 }).then(() => { 
-  playButton.disabled = false
-  document.getElementById('loader').classList.add('hide')
+  playButton.disabled = false;
+  document.getElementById('loader').classList.add('hide');
   sessionStorage.setItem('sounds', JSON.stringify(soundsToPlay));
 });
 
@@ -68,7 +68,7 @@ Plays a random audio file from the list
 */
 function playSound() {
   if (soundsToPlay.length == 0) {
-    alert('Sounds are not available. Try again.');
+    swal('Sounds are not available. Try again.');
     return;
   };
   let randomSound = soundsToPlay[Math.floor(Math.random() * soundsToPlay.length)];
@@ -89,7 +89,7 @@ function showImages(chosenSound) {
   convertbase64Image(images[randomIndex], chosenFile, true);
   let set = new Set();
   set.add(imageOptions.indexOf(chosenFile));
-  while (set.size < 4){
+  while (set.size < imageOptions.length){
     set.add(Math.floor(Math.random() * imageOptions.length))
   }
   set.delete(imageOptions.indexOf(chosenFile));
@@ -245,7 +245,7 @@ function hideTooltip() {
 }
 
 async function saveScore(email, username, highestScore, latestScore) {
-  let apiUrl = `https://soundspotgame.herokuapp.com/api/user/update/${email}/${username}/`;
+  let apiUrl = `https://soundspot-backend.herokuapp.com/api/user/update/${email}/${username}/`;
   const response = await fetch(apiUrl, {
     method: 'PATCH',
     headers: {

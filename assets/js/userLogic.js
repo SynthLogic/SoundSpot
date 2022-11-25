@@ -21,11 +21,11 @@ async function postRequest(e) {
   let isLogin = e.target.getAttribute('id') == 'login-form';
   let isRegister = e.target.getAttribute('id') == 'register-form';
   if (isLogin) {
-    apiUrl = 'https://soundspotgame.herokuapp.com/api/user/login/';
+    apiUrl = 'https://soundspot-backend.herokuapp.com/api/user/login/';
     formData = new FormData(loginForm);
   }
   if (isRegister) {
-    apiUrl = 'https://soundspotgame.herokuapp.com/api/user/register/';
+    apiUrl = 'https://soundspot-backend.herokuapp.com/api/user/register/';
     formData = new FormData(registerForm);
   }
   const response = await fetch(apiUrl, {
@@ -61,7 +61,7 @@ async function patchRequest(e) {
     swal('Passwords do not match');
     return;
   }
-  let apiUrl =`https://soundspotgame.herokuapp.com/api/user/update/${email}/${username}/`;
+  let apiUrl =`https://soundspot-backend.herokuapp.com/api/user/update/${email}/${username}/`;
   const response = await fetch(apiUrl, {
     method: 'PATCH',
     headers: {
